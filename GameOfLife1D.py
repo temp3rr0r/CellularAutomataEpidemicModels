@@ -11,52 +11,32 @@ def getNewState(previousNeighboursState):
     selfCharacter = previousNeighboursState[1]
     afterCharacter = previousNeighboursState[2]
 
-    if selfCharacter == '1' or selfCharacter == '2':
-        newState = '2'
-    else:
-        if beforeCharacter == '1' or afterCharacter == '1' or beforeCharacter == '2' or afterCharacter == 2:
+    newState = selfCharacter
+
+    if selfCharacter == '0':
+        if beforeCharacter == '2' or afterCharacter == '2':
             newState = '1'
+    else:
+        if selfCharacter == '1':
+            if (round(random.uniform(0.0, 1.0), 10) * beta) > 1.0:
+                newState = '2'
+            else:
+                newState = '0'
+        else:
+            if selfCharacter == '2':
+                if (round(random.uniform(0.0, 1.0), 10) * (1.0 + gamma)) > 1.0:
+                    newState = '1'
 
-    '''neighbours2newstate = {
-     '000': '0',
-     '001': '1',
-     '010': '2',
-     '011': '2',
-     '100': '1',
-     '101': '1',
-     '110': '2',
-     '111': '2',
 
-     '012': '2',
-     '021': '2',
-     '102': '1',
-     '120': '2',
-     '201': '1',
-     '210': '2',
-
-     '002': '1',
-     '020': '2',
-     '022': '2',
-     '200': '1',
-     '202': '1',
-     '220': '2',
-     '222': '2',
-
-     '112': '2',
-     '121': '2',
-     '122': '2',
-     '211': '2',
-     '212': '2',
-     '221': '2',
-     '222': '2',
-     }'''
     return newState
 
+beta = 1.4247 # Chance to get S from neighbouring I
+gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 susceptibleCharacter = 'S'
 infectedCharacter ='I'
 normalCharacter = ' '
-maxgenerations = 15
-cellcount = 30
+maxgenerations = 100
+cellcount = 100
 offendvalue = '0'
 
 t_start = 0.0
@@ -64,47 +44,13 @@ t_end = maxgenerations
 t_inc = 1
 t_range = np.arange(t_start, t_end + t_start, t_inc)
 
-universe = ''.join(random.choice('000000001') for i in range(cellcount))
+universe = ''.join(random.choice('000000002') for i in range(cellcount))
 
 InitSusceptibles = 0.0
 InitInfected = universe.count('2')
 InitVariables = [InitSusceptibles, InitInfected, 0.0, 0.0]
 
 RES = [InitVariables]
-
-neighbours2newstate = {
- '000': '0',
- '001': '1',
- '010': '2',
- '011': '2',
- '100': '1',
- '101': '1',
- '110': '2',
- '111': '2',
-
- '012': '2',
- '021': '2',
- '102': '1',
- '120': '2',
- '201': '1',
- '210': '2',
-
- '002': '1',
- '020': '2',
- '022': '2',
- '200': '1',
- '202': '1',
- '220': '2',
- '222': '2',
-
- '112': '2',
- '121': '2',
- '122': '2',
- '211': '2',
- '212': '2',
- '221': '2',
- '222': '2',
- }
  
 for i in range(maxgenerations):
     print "Generation %3i:  %s" % ( i,
@@ -115,17 +61,16 @@ for i in range(maxgenerations):
 
     universe = offendvalue + universe + offendvalue
     universe = ''.join(
-        neighbours2newstate[
+        getNewState(
             universe[i:i+3]
-        ] for i in range(cellcount)
+        ) for i in range(cellcount)
     )
 
 print RES
 
-print getNewState('000')
 
 #Ploting
-pl.subplot(211)
+pl.subplot(3, 1, 1)
 pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
 pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
 pl.legend(loc=0)
@@ -134,7 +79,7 @@ pl.xlabel('Time')
 pl.ylabel('Count')
 
 
-pl.subplot(212)
+pl.subplot(3, 1, 2)
 pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
 pl.legend(loc=0)
@@ -142,3 +87,11 @@ pl.title('Infected and Normal')
 pl.xlabel('Time')
 pl.ylabel('Count')
 pl.show()
+
+pl.subplot(3, 1, 3)
+pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
+pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-b', label='Infected')
+pl.legend(loc=0)
+pl.title('Susceptibles and Infected')
+pl.xlabel('Time')
+pl.ylabel('Count')
