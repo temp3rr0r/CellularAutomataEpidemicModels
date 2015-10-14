@@ -3,17 +3,25 @@ import numpy as np
 import pylab as pl
 from operator import itemgetter
 
-def getNewState(previousNeighboursState):
+def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     newState = '0'
 
-    beforeCharacter = previousNeighboursState[0]
-    selfCharacter = previousNeighboursState[1]
-    afterCharacter = previousNeighboursState[2]
+    leftCharacter = currentRowNeighbours[0]
+    selfCharacter = currentRowNeighbours[1]
+    rightCharacter = currentRowNeighbours[2]
+
+    upperLeftCharacter = upperRowNeighbours[0]
+    upperCenterCharacter = upperRowNeighbours[0]
+    upperRightCharacter = upperRowNeighbours[0]
+
+    lowerLeftCharacter = lowerRowNeighbours[0]
+    lowerCenterCharacter = lowerRowNeighbours[0]
+    lowerRightCharacter = lowerRowNeighbours[0]
 
     newState = selfCharacter
 
     if selfCharacter == '0': # If Normal and there is an infected close, be Susceptible
-        if beforeCharacter == '2' or afterCharacter == '2':
+        if leftCharacter == '2' or rightCharacter == '2':
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
@@ -25,7 +33,31 @@ def getNewState(previousNeighboursState):
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
                 if (1 - round(np.random.uniform(0.0, 1.0), 10)) <= gamma:
                     newState = '1'
-                #newState = '2'
+
+    return newState
+
+def getNewState(previousNeighboursState):
+    newState = '0'
+
+    leftCharacter = previousNeighboursState[0]
+    selfCharacter = previousNeighboursState[1]
+    rightCharacter = previousNeighboursState[2]
+
+    newState = selfCharacter
+
+    if selfCharacter == '0': # If Normal and there is an infected close, be Susceptible
+        if leftCharacter == '2' or rightCharacter == '2':
+            newState = '1'
+    else:
+        if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
+            if (2 - round(np.random.uniform(0.0, 1.0), 10)) <= beta:
+                newState = '2'
+            else:
+                newState = '0'
+        else:
+            if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
+                if (1 - round(np.random.uniform(0.0, 1.0), 10)) <= gamma:
+                    newState = '1'
 
     return newState
 
@@ -36,11 +68,10 @@ infectedCharacter ='I'
 normalCharacter = ' '
 maxgenerations = 30
 
-cellcount = 100
 cellX = 10
 cellY = 10
 
-offendvalue = '0'
+extremeEndValue = '0'
 
 t_start = 0.0
 t_end = maxgenerations
@@ -62,9 +93,6 @@ RES = [InitVariables]
  
 for i in range(maxgenerations):
 
-    #print "Generation %3i:  %s" % ( i,
-          #universe.replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter ))
-
     # Print the current generation
     print "Generation %3i:  " % i
     for k in range(cellY):
@@ -82,21 +110,25 @@ for i in range(maxgenerations):
 
     # Calculate the next generation
     for k in range(cellY):
-        universeList[k] = offendvalue + universeList[k] + offendvalue
-        universeList[k] = ''.join(
-            getNewState(
-                universeList[k][i:i+3]
-            ) for i in range(cellX)
-        )
+        universeList[k] = extremeEndValue + universeList[k] + extremeEndValue
 
-    #RES.append([universe.count('0'), universe.count('1'), universe.count('2'), i])
+        #universeList[k] = ''.join(
+        #    getNewState(
+        #        universeList[k][i:i+3]
+        #    ) for i in range(cellX)
 
-    #universe = offendvalue + universe + offendvalue
-    #universe = ''.join(
-    #    getNewState(
-    #        universe[i:i+3]
-    #    ) for i in range(cellcount)
-    #)
+        # newUniverseList = universeList
+        newUniverseList = ''
+        for i in range(cellX):
+            upperRowNeighbours = '000'
+            lowerRowNeighbours = '000'
+            currentRowNeighbours = universeList[k][i:i+3]
+            if (k - 1) >= 0:
+                upperRowNeighbours = universeList[k-1][i:i+3]
+            if (k + 1) < cellY:
+                lowerRowNeighbours = universeList[k+1][i:i+3]
+            newUniverseList += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
+        universeList[k] = newUniverseList
 
 print RES
 
