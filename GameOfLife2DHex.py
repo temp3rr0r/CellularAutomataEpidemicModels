@@ -56,7 +56,7 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
     return newState
 
 # SIS Model Parameters
-beta = 1.9247 # Chance to get S from neighbouring I
+beta = 1.4247 # Chance to get S from neighbouring I
 gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 simulationIterations = 100
 cellCountX = 33
