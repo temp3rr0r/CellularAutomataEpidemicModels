@@ -16,6 +16,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     WHITE = (255, 255, 255)
     BLUE =  (  0,   0, 255)
     GREEN = (  0, 255,   0)
+    YELLOW =   (255,   255,   0)
     RED =   (255,   0,   0)
     ORANGE =   (255,   165,   0)
 
@@ -36,7 +37,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     FPS = 60                           # desired max. framerate in frames per second.
     playtime = 0
     cycletime = 0
-    interval = .15#.15 # how long one single images should be displayed in seconds
+    interval = .25#.15 # how long one single images should be displayed in seconds
     picnr = 0
 
     #for currentStep in range(simulationIterations):
@@ -65,12 +66,11 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
             for currentRow in range(cellCountY):# Draw a solid rectangle
                 for currentColumn in range (cellCountX):
                     # rect(Surface, color, Rect, width=0) -> Rect
-                    #pygame.draw.rect(screen, BLACK, [150, 10, 50, 20])
                     if currentTimeStep > 0 and currentTimeStep < simulationIterations:
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '0':
-                            currentColour = WHITE
+                            currentColour = BLUE
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '1':
-                            currentColour = ORANGE
+                            currentColour = YELLOW
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '2':
                             currentColour = RED
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '3':
@@ -108,24 +108,12 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
 ''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
-    leftCharacter = currentRowNeighbours[0]
     selfCharacter = currentRowNeighbours[1]
-    rightCharacter = currentRowNeighbours[2]
-
-    upperLeftCharacter = upperRowNeighbours[0]
-    upperCenterCharacter = upperRowNeighbours[1]
-    upperRightCharacter = upperRowNeighbours[2]
-
-    lowerLeftCharacter = lowerRowNeighbours[0]
-    lowerCenterCharacter = lowerRowNeighbours[1]
-    lowerRightCharacter = lowerRowNeighbours[2]
 
     newState = selfCharacter
 
     if selfCharacter == '0': # If Normal and there is an Infected close, be Susceptible
-        if leftCharacter == '2' or rightCharacter == '2' or\
-            upperLeftCharacter == '2' or upperRightCharacter == '2' or upperCenterCharacter == '2'\
-                or lowerLeftCharacter == '2' or lowerRightCharacter == '2' or lowerCenterCharacter == '2':
+        if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
             newState = '1'
     elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
         #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
@@ -134,17 +122,20 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
         if betaChance > 0 and betaChance < beta:
             newState = '2'
         else:
-            newState = '1'
+            if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
+                newState = '1'
+            else:
+                newState = '0'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered 'to recover'
-        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #gammaChance = (1 - np.random.uniform()) # UNIFORM
+        #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        gammaChance = (1 - np.random.uniform()) # UNIFORM
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
     elif selfCharacter == '3': # Recovered, immune for a while
-        rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #rhoChance = (1 - np.random.uniform()) # UNIFORM
+        #rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        rhoChance = (1 - np.random.uniform()) # UNIFORM
         #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if rhoChance < rho and rhoChance > 0:
@@ -153,10 +144,10 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     return newState
 
 # SIS Model Parameters
-beta = 1.12247 # Chance to get S from neighbouring I
-gamma = 0.0 # Chance to get from I to R (or normal in our case)
-rho = 0.0 # Chance ot get from R to normal (Loss of immunity rate)
-simulationIterations = 100
+beta = 1.13#1.13247 # Chance to get S from neighbouring I
+gamma = 0#0.140 # Chance to get from I to R (or normal in our case)
+rho = 0#0.50 # Chance ot get from R to normal (Loss of immunity rate)
+simulationIterations = 30
 cellCountX = 33
 cellCountY = 33
 
@@ -174,7 +165,7 @@ universeList = []
 
 # Randomise first state
 for currentColumn in range(cellCountY):
-    universe = ''.join(random.choice('000000002') for universeColumn in range(cellCountX))
+    universe = ''.join(random.choice('000000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
 # TODO: Fix init state vars
@@ -234,38 +225,23 @@ for currentTimeStep in range(simulationIterations):
 #print(universeTimeSeries)
 
 #Ploting
-pl.subplot(4, 1, 1)
+pl.subplot(2, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Normal')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-y', label='Susceptibles')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-b', label='Recovered')
+pl.legend(loc=0)
+pl.title('All vs Time')
+pl.xlabel('Time')
+pl.ylabel('Count')
+
+pl.subplot(2, 1, 2)
+pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-b', label='Infected')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-r', label='Normal')
 pl.legend(loc=0)
 pl.title('Infected and Normal')
-pl.xlabel('Time')
-pl.ylabel('Count')
-
-pl.subplot(4, 1, 2)
-pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Normal')
-pl.legend(loc=0)
-pl.title('Susceptibles and Normal')
-pl.xlabel('Time')
-pl.ylabel('Count')
-
-pl.subplot(4, 1, 3)
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-b', label='Infected')
-pl.legend(loc=0)
-pl.title('Susceptibles and Infected')
-pl.xlabel('Susceptibles')
-pl.ylabel('Infected')
-
-pl.subplot(4, 1, 4)
-pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-r', label='Recovered')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Normal')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.legend(loc=0)
-pl.title('Recovered and Normal')
-pl.xlabel('Time')
-pl.ylabel('Count')
-
+pl.xlabel('Infected')
+pl.ylabel('Normal')
 
 pl.show()
 
