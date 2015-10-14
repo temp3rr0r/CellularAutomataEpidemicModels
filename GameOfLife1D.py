@@ -17,14 +17,19 @@ def getNewState(previousNeighboursState):
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-            betaChance = (2 - np.random.poisson())
+            #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
+            #betaChance = (2 - np.random.uniform()) # UNIFORM
+            betaChance = (2 - (np.random.poisson(5) % 10) * 0.1) # POISSON
             if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
                 newState = '0'
         else:
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
-                gammaChance = (1 - np.random.poisson())
+                #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+                #gammaChance = (1 - np.random.uniform()) # UNIFORM
+                gammaChance = (1 - (np.random.poisson(5) % 10) * 0.1) # POISSON
+
                 if gammaChance < gamma and gammaChance > 0:
                     newState = '1'
 
@@ -35,7 +40,7 @@ gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 susceptibleCharacter = 'S'
 infectedCharacter ='I'
 normalCharacter = ' '
-maxgenerations = 70
+maxgenerations = 200
 cellcount = 300
 offendvalue = '0'
 

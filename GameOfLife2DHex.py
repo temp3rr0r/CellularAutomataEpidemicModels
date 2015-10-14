@@ -37,25 +37,30 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-            betaChance = (2 - np.random.poisson())
+            #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
+            #betaChance = (2 - np.random.uniform()) # UNIFORM
+            betaChance = (2 - (np.random.poisson(1) % 10) * 0.1) # POISSON
             if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
                 newState = '0'
         else:
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
-                gammaChance = (1 - np.random.poisson())
+                #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+                #gammaChance = (1 - np.random.uniform()) # UNIFORM
+                gammaChance = (1 - (np.random.poisson(1) % 10) * 0.1) # POISSON
+
                 if gammaChance < gamma and gammaChance > 0:
                     newState = '1'
 
     return newState
 
 # SIS Model Parameters
-beta = 1.4247 # Chance to get S from neighbouring I
-gamma = 0.124286 # Chance to get from I to R (or normal in our case)
+beta = 1.9247 # Chance to get S from neighbouring I
+gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 simulationIterations = 100
-cellCountX = 100
-cellCountY = 10
+cellCountX = 33
+cellCountY = 33
 
 # Init values
 susceptibleCharacter = 'S'
@@ -84,8 +89,8 @@ RES = [InitVariables]
 for currentTimeStep in range(simulationIterations):
 
     # Print the current generation
-    #if currentTimeStep < 4:
-    #    printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter)
+    if currentTimeStep < 4:
+        printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter)
 
     # Store the counts of I, S and the time iteration
     zeroCount = 0
