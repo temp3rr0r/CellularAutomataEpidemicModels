@@ -21,8 +21,8 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     ORANGE =   (255,   165,   0)
 
     # Set the height and width of the screen
-    screenHeight = 500
-    screenWidth = 500
+    screenHeight = 200
+    screenWidth = 200
     size = [screenHeight, screenWidth]
     screen = pygame.display.set_mode(size)
     screen.fill(WHITE)
@@ -37,7 +37,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     FPS = 60                           # desired max. framerate in frames per second.
     playtime = 0
     cycletime = 0
-    interval = .25#.15 # how long one single images should be displayed in seconds
+    interval = .15#.15 # how long one single images should be displayed in seconds
     picnr = 0
 
     #for currentStep in range(simulationIterations):
@@ -144,12 +144,12 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     return newState
 
 # SIS Model Parameters
-beta = 1.13#1.13247 # Chance to get S from neighbouring I
-gamma = 0#0.140 # Chance to get from I to R (or normal in our case)
-rho = 0#0.50 # Chance ot get from R to normal (Loss of immunity rate)
-simulationIterations = 30
-cellCountX = 33
-cellCountY = 33
+beta = 1.43#1.13247 # Chance to get S from neighbouring I
+gamma = 0.14#.14#.1#.2#0.140 # Chance to get from I to R (or normal in our case)
+rho = 0.33#.33#.8#.33#0.50 # Chance ot get from R to normal (Loss of immunity rate)
+simulationIterations = 90
+cellCountX = 200
+cellCountY = 200
 
 # Init values
 susceptibleCharacter = 'S'
@@ -165,7 +165,12 @@ universeList = []
 
 # Randomise first state
 for currentColumn in range(cellCountY):
-    universe = ''.join(random.choice('000000000002') for universeColumn in range(cellCountX))
+    # if currentColumn == (cellCountY / 2):
+    #     universe = ''.join('0' for universeColumn in range((cellCountX / 2) - 1))
+    #     universe += '2'
+    #     universe += ''.join('0' for universeColumn in range(cellCountX / 2))
+    # else:
+    universe = ''.join(random.choice('0000000000000000000000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
 # TODO: Fix init state vars
@@ -229,15 +234,15 @@ pl.subplot(2, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Normal')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-y', label='Susceptibles')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-b', label='Recovered')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
 pl.legend(loc=0)
 pl.title('All vs Time')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
 pl.subplot(2, 1, 2)
-pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-b', label='Infected')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-r', label='Normal')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-b', label='Normal')
 pl.legend(loc=0)
 pl.title('Infected and Normal')
 pl.xlabel('Infected')
