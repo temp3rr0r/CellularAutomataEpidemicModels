@@ -34,8 +34,12 @@ gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 susceptibleCharacter = 'S'
 infectedCharacter ='I'
 normalCharacter = ' '
-maxgenerations = 70
-cellcount = 300
+maxgenerations = 30
+
+cellcount = 100
+cellX = 10
+cellY = 10
+
 offendvalue = '0'
 
 t_start = 0.0
@@ -43,26 +47,56 @@ t_end = maxgenerations
 t_inc = 1
 t_range = np.arange(t_start, t_end + t_start, t_inc)
 
-universe = ''.join(random.choice('000000002') for i in range(cellcount))
+universeList = []
+
+# Init, get random I
+for j in range(cellY):
+    universe = ''.join(random.choice('000000002') for i in range(cellX))
+    universeList.append(universe)
 
 InitSusceptibles = 0.0
-InitInfected = universe.count('2')
+InitInfected = 0.0
 InitVariables = [InitSusceptibles, InitInfected, 0.0, 0.0]
 
 RES = [InitVariables]
  
 for i in range(maxgenerations):
-    print "Generation %3i:  %s" % ( i,
-          universe.replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter ))
 
-    RES.append([universe.count('0'), universe.count('1'), universe.count('2'), i])
+    #print "Generation %3i:  %s" % ( i,
+          #universe.replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter ))
 
-    universe = offendvalue + universe + offendvalue
-    universe = ''.join(
-        getNewState(
-            universe[i:i+3]
-        ) for i in range(cellcount)
-    )
+    # Print the current generation
+    print "Generation %3i:  " % i
+    for k in range(cellY):
+        print universeList[k].replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter)
+
+    # Store the counts of I, S and the time iteration
+    zeroCount = 0
+    oneCount = 0
+    twoCount = 0
+    for k in range(cellY):
+        zeroCount += universeList[k].count('0')
+        oneCount += universeList[k].count('1')
+        twoCount += universeList[k].count('2')
+    RES.append([zeroCount, oneCount, twoCount, i])
+
+    # Calculate the next generation
+    for k in range(cellY):
+        universeList[k] = offendvalue + universeList[k] + offendvalue
+        universeList[k] = ''.join(
+            getNewState(
+                universeList[k][i:i+3]
+            ) for i in range(cellX)
+        )
+
+    #RES.append([universe.count('0'), universe.count('1'), universe.count('2'), i])
+
+    #universe = offendvalue + universe + offendvalue
+    #universe = ''.join(
+    #    getNewState(
+    #        universe[i:i+3]
+    #    ) for i in range(cellcount)
+    #)
 
 print RES
 
