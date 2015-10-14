@@ -17,15 +17,16 @@ def getNewState(previousNeighboursState):
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-            if (2 - round(np.random.uniform(0.0, 1.0), 10)) <= beta:
+            betaChance = (2 - np.random.poisson())
+            if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
                 newState = '0'
         else:
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
-                if (1 - round(np.random.uniform(0.0, 1.0), 10)) <= gamma:
+                gammaChance = (1 - np.random.poisson())
+                if gammaChance < gamma and gammaChance > 0:
                     newState = '1'
-                #newState = '2'
 
     return newState
 

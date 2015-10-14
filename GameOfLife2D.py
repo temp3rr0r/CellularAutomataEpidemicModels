@@ -39,23 +39,25 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-            if (2 - round(np.random.normal(0.0, 1.0), 10)) <= beta:
+            betaChance = (2 - np.random.uniform())
+            if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
                 newState = '0'
         else:
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
-                if (1 - round(np.random.normal(0.0, 1.0), 10)) <= gamma:
+                gammaChance = (1 - np.random.uniform())
+                if gammaChance < gamma and gammaChance > 0:
                     newState = '1'
 
     return newState
 
 # SIS Model Parameters
-beta = 1.4247 # Chance to get S from neighbouring I
-gamma = 0.14286 # Chance to get from I to R (or normal in our case)
+beta = 1.999#1.4247 # Chance to get S from neighbouring I
+gamma = 0.0#12286 # Chance to get from I to R (or normal in our case)
 simulationIterations = 100
-cellCountX = 10
-cellCountY = 100
+cellCountX = 33
+cellCountY = 33
 
 # Init values
 susceptibleCharacter = 'S'
