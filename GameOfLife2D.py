@@ -2,8 +2,8 @@ import random
 import numpy as np
 import pylab as pl
 from operator import itemgetter
-from copy import deepcopy
 
+''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     newState = '0'
 
@@ -38,77 +38,77 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     return newState
 
-# Parameters
+# SIS Model Parameters
 beta = 1.4247 # Chance to get S from neighbouring I
 gamma = 0.14286 # Chance to get from I to R (or normal in our case)
+simulationIterations = 30
+cellCountX = 10
+cellCountY = 10
 
 # Init values
 susceptibleCharacter = 'S'
 infectedCharacter ='I'
 normalCharacter = '_'
 extremeEndValue = '0'
-maxGenerations = 30
-
-cellX = 10
-cellY = 10
-
 timeStart = 0.0
-timeEnd = maxGenerations
+timeEnd = simulationIterations
 timeStep = 1
 timeRange = np.arange(timeStart, timeEnd + timeStart, timeStep)
-
 universeList = []
 
 # Randomise first state
-for j in range(cellY):
-    universe = ''.join(random.choice('000000002') for i in range(cellX))
+for currentColumn in range(cellCountY):
+    universe = ''.join(random.choice('000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
+# TODO: Fix init state vars
 InitSusceptibles = 0.0
 InitInfected = 0.0
 InitVariables = [InitSusceptibles, InitInfected, 0.0, 0.0]
 
 RES = [InitVariables]
- 
-for i in range(maxGenerations):
+
+# Main Execution loop
+for currentTimeStep in range(simulationIterations):
 
     # Print the current generation
-    print "Generation %3i:  " % i
+    print "TimeStep %3i:  " % currentTimeStep
     rowLabel = "  "
-    for l in range(cellX):
+    for l in range(cellCountX):
         rowLabel += str(l) + " "
     print rowLabel
-    for k in range(cellY):
-        print "%s %s" % (k, universeList[k].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").replace('2', infectedCharacter + " "))
+    for currentRow in range(cellCountY):
+        print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
+                         replace('2', infectedCharacter + " "))
 
     # Store the counts of I, S and the time iteration
     zeroCount = 0
     oneCount = 0
     twoCount = 0
-    for k in range(cellY):
-        zeroCount += universeList[k].count('0')
-        oneCount += universeList[k].count('1')
-        twoCount += universeList[k].count('2')
-    RES.append([zeroCount, oneCount, twoCount, i])
+    for currentRow in range(cellCountY):
+        zeroCount += universeList[currentRow].count('0')
+        oneCount += universeList[currentRow].count('1')
+        twoCount += universeList[currentRow].count('2')
+    RES.append([zeroCount, oneCount, twoCount, currentTimeStep])
 
-    # Put extreme ends neighbouring cells temporarily
+    # Put extreme ends neighbouring cells temporarily on the old universe
     oldUniverseList = []
-    for k in range(cellY):
-        oldUniverseList.append(extremeEndValue + universeList[k] + extremeEndValue)
+    for currentRow in range(cellCountY):
+        oldUniverseList.append(extremeEndValue + universeList[currentRow] + extremeEndValue)
 
-    for k in range(cellY):
+    for currentRow in range(cellCountY):
         newUniverseRow = ''
-        for j in range(cellX):
+        for currentColumn in range(cellCountX):
             upperRowNeighbours = '000'
             lowerRowNeighbours = '000'
-            currentRowNeighbours = oldUniverseList[k][j:j+3]
-            if (k - 1) >= 0:
-                upperRowNeighbours = oldUniverseList[k-1][j:j+3]
-            if (k + 1) < cellY:
-                lowerRowNeighbours = oldUniverseList[k+1][j:j+3]
+            currentRowNeighbours = oldUniverseList[currentRow][currentColumn:currentColumn+3]
+            if (currentRow - 1) >= 0:
+                upperRowNeighbours = oldUniverseList[currentRow-1][currentColumn:currentColumn+3]
+            if (currentRow + 1) < cellCountY:
+                lowerRowNeighbours = oldUniverseList[currentRow+1][currentColumn:currentColumn+3]
 
             newUniverseRow += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
-            universeList[k] = newUniverseRow
+            universeList[currentRow] = newUniverseRow
 
 print RES
 
