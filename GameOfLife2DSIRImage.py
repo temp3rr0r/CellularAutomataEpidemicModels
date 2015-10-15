@@ -4,15 +4,12 @@ import pylab as pl
 from operator import itemgetter
 # Import a library of functions called 'pygame'
 import pygame
-from math import pi
-import time
 
 def drawSquare(screen, currentColour, currentColumn, cellSize, currentRow):
     pygame.draw.rect(screen, currentColour, [currentColumn * cellSize, currentRow * cellSize, (currentColumn + 1)
                                              * cellSize, (currentRow + 1) * cellSize])
 
 def drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow):
-
     minX = currentColumn * cellSize
     maxX =(currentColumn + 1)* cellSize
     minY = currentRow * cellSize
@@ -24,13 +21,7 @@ def drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow):
     if currentColumn > 1:
         minX -= spacing * int(currentColumn / 2)
         maxX -= spacing * int(currentColumn / 2)
-    #     # #
-    #     # if currentColumn % 2 == 0:
-    #     # #     minX -= spacing * currentColumn
-    #     # #     maxX -= spacing * currentColumn
-    #     # # else:
-    #     #     minX -= spacing * currentColumn
-    #     #     maxX -= spacing * currentColumn
+
     if currentColumn % 2 == 1:
         minX -= quarterLength
         maxX -= quarterLength
@@ -194,8 +185,8 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
         if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
             newState = '1'
     elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-        #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
-        betaChance = (2 - np.random.uniform()) # UNIFORM
+        betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
+        #betaChance = (2 - np.random.uniform()) # UNIFORM
         #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
         if betaChance > 0 and betaChance < beta:
             newState = '2'
@@ -205,15 +196,15 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
             else:
                 newState = '0'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered 'to recover'
-        #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        gammaChance = (1 - np.random.uniform()) # UNIFORM
+        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #gammaChance = (1 - np.random.uniform()) # UNIFORM
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
     elif selfCharacter == '3': # Recovered, immune for a while
-        #rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        rhoChance = (1 - np.random.uniform()) # UNIFORM
+        rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #rhoChance = (1 - np.random.uniform()) # UNIFORM
         #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if rhoChance < rho and rhoChance > 0:
@@ -222,12 +213,12 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     return newState
 
 # SIS Model Parameters
-beta = 1.13247 # Chance to get S from neighbouring I
-gamma = 0.4140 # Chance to get from I to R (or normal in our case)
+beta = 1.4247 # Chance to get S from neighbouring I
+gamma = 0.14286 # Chance to get from I to R (or normal in our case)
 rho = .33 # Chance ot get from R to normal (Loss of immunity rate)
-simulationIterations = 30
-cellCountX = 50
-cellCountY = 50
+simulationIterations = 70
+cellCountX = 33
+cellCountY = 33
 hexagonLayout = False
 
 # Init values
@@ -249,7 +240,7 @@ for currentColumn in range(cellCountY):
     #     universe += '2'
     #     universe += ''.join('0' for universeColumn in range(cellCountX / 2))
     # else:
-    universe = ''.join(random.choice('0000000000000000000000000002') for universeColumn in range(cellCountX))
+    universe = ''.join(random.choice('00000000000000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
 # TODO: Fix init state vars
@@ -332,6 +323,7 @@ for currentTimeStep in range(simulationIterations):
                 newUniverseRow += getNewState2DHex(oldUniverseList[currentRow][currentColumn], hexNeighbours)
                 universeList[currentRow] = newUniverseRow
             else:
+                # SQUARE
                 upperRowNeighbours = '000'
                 lowerRowNeighbours = '000'
                 currentRowNeighbours = oldUniverseList[currentRow][currentColumn:currentColumn+3]
@@ -342,6 +334,9 @@ for currentTimeStep in range(simulationIterations):
 
                 newUniverseRow += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
                 universeList[currentRow] = newUniverseRow
+
+                # TODO: Square neighbours to list of characters
+                #squareNeighbours = list("00000000") # list of characters
 
 #print RES
 
