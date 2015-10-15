@@ -7,6 +7,51 @@ import pygame
 from math import pi
 import time
 
+def drawSquare(screen, currentColour, currentColumn, cellSize, currentRow):
+    pygame.draw.rect(screen, currentColour, [currentColumn * cellSize, currentRow * cellSize, (currentColumn + 1)
+                                             * cellSize, (currentRow + 1) * cellSize])
+
+def drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow):
+
+    minX = currentColumn * cellSize
+    maxX =(currentColumn + 1)* cellSize
+    minY = currentRow * cellSize
+    maxY = (currentRow + 1) * cellSize
+    quarterLength = (maxY - minY) / 4
+
+    spacing =  (2 * quarterLength)
+
+    if currentColumn > 1:
+        minX -= spacing * int(currentColumn / 2)
+        maxX -= spacing * int(currentColumn / 2)
+    #     # #
+    #     # if currentColumn % 2 == 0:
+    #     # #     minX -= spacing * currentColumn
+    #     # #     maxX -= spacing * currentColumn
+    #     # # else:
+    #     #     minX -= spacing * currentColumn
+    #     #     maxX -= spacing * currentColumn
+    if currentColumn % 2 == 1:
+        minX -= quarterLength
+        maxX -= quarterLength
+        minY += spacing
+        maxY += spacing
+
+    center = [minX + 2 * quarterLength, minY + 2 * quarterLength]
+    a = [minX + quarterLength, minY]
+    b = [minX + 3 * quarterLength, minY]
+    d = [maxX, minY + 2 * quarterLength]
+    e = [minX + 3 * quarterLength, maxY]
+    f = [minX + quarterLength, maxY]
+    g = [minX, minY + 2 * quarterLength]
+
+    pygame.draw.polygon(screen, currentColour, [center, a, b])
+    pygame.draw.polygon(screen, currentColour, [center, b, d])
+    pygame.draw.polygon(screen, currentColour, [center, d, e])
+    pygame.draw.polygon(screen, currentColour, [center, e, f])
+    pygame.draw.polygon(screen, currentColour, [center, f, g])
+    pygame.draw.polygon(screen, currentColour, [center, g, a])
+
 def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     # Initialize the game engine
     pygame.init()
@@ -21,8 +66,8 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     ORANGE =   (255,   165,   0)
 
     # Set the height and width of the screen
-    screenHeight = 400
-    screenWidth = 400
+    screenHeight = 600
+    screenWidth = 600
     size = [screenHeight, screenWidth]
     screen = pygame.display.set_mode(size)
     screen.fill(WHITE)
@@ -37,7 +82,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     FPS = 60                           # desired max. framerate in frames per second.
     playtime = 0
     cycletime = 0
-    interval = .15#.15 # how long one single images should be displayed in seconds
+    interval = .5#.15 # how long one single images should be displayed in seconds
     picnr = 0
 
     #for currentStep in range(simulationIterations):
@@ -76,8 +121,8 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '3':
                             currentColour = BLUE
 
-                        pygame.draw.rect(screen, currentColour, [currentColumn * cellSize, currentRow * cellSize, (currentColumn + 1)
-                                                                 * cellSize, (currentRow + 1) * cellSize])
+                        drawSquare(screen, currentColour, currentColumn, cellSize, currentRow)
+                        #drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow)
 
         # This MUST happen after all the other drawing commands.
         pygame.display.flip()
