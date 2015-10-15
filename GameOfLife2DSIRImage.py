@@ -121,8 +121,10 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '3':
                             currentColour = BLUE
 
-                        drawSquare(screen, currentColour, currentColumn, cellSize, currentRow)
-                        #drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow)
+                        if hexagonLayout:
+                            drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow)
+                        else:
+                            drawSquare(screen, currentColour, currentColumn, cellSize, currentRow)
 
         # This MUST happen after all the other drawing commands.
         pygame.display.flip()
@@ -149,6 +151,41 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
     for currentRow in range(cellCountY):
         print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
                          replace('2', infectedCharacter + " ").replace('3', recoveredCharacter + " "))
+
+''' This method calculates the new state of the cell based on Van Neumann HEX neighborhood '''
+def getNewState2DHex(selfCharacter, hexNeighbours):
+    newState = selfCharacter
+
+    if selfCharacter == '0': # If Normal and there is an Infected close, be Susceptible
+        if (hexNeighbours.count('2') > 0):
+            newState = '1'
+    elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
+        #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
+        betaChance = (2 - np.random.uniform()) # UNIFORM
+        #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        if betaChance > 0 and betaChance < beta:
+            newState = '2'
+        else:
+            if (hexNeighbours.count('2') > 0):
+                newState = '1'
+            else:
+                newState = '0'
+    elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered 'to recover'
+        #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        gammaChance = (1 - np.random.uniform()) # UNIFORM
+        #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+
+        if gammaChance < gamma and gammaChance > 0:
+            newState = '3'
+    elif selfCharacter == '3': # Recovered, immune for a while
+        #rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        rhoChance = (1 - np.random.uniform()) # UNIFORM
+        #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+
+        if rhoChance < rho and rhoChance > 0:
+            newState = '0'
+
+    return newState
 
 ''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
@@ -195,6 +232,7 @@ rho = 0.33#.33#.8#.33#0.50 # Chance ot get from R to normal (Loss of immunity ra
 simulationIterations = 30
 cellCountX = 100
 cellCountY = 100
+hexagonLayout = True
 
 # Init values
 susceptibleCharacter = 'S'
@@ -251,7 +289,10 @@ for currentTimeStep in range(simulationIterations):
     oldUniverseList = []
     toCopyUniverseList = []
     for currentRow in range(cellCountY):
-        oldUniverseList.append(extremeEndValue + universeList[currentRow] + extremeEndValue)
+        if hexagonLayout:
+            oldUniverseList.append(universeList[currentRow])
+        else:
+            oldUniverseList.append(extremeEndValue + universeList[currentRow] + extremeEndValue)
         toCopyUniverseList.append(universeList[currentRow])
 
     universeTimeSeries.append(toCopyUniverseList)
@@ -259,16 +300,52 @@ for currentTimeStep in range(simulationIterations):
     for currentRow in range(cellCountY):
         newUniverseRow = ''
         for currentColumn in range(cellCountX):
-            upperRowNeighbours = '000'
-            lowerRowNeighbours = '000'
-            currentRowNeighbours = oldUniverseList[currentRow][currentColumn:currentColumn+3]
-            if (currentRow - 1) >= 0:
-                upperRowNeighbours = oldUniverseList[currentRow-1][currentColumn:currentColumn+3]
-            if (currentRow + 1) < cellCountY:
-                lowerRowNeighbours = oldUniverseList[currentRow+1][currentColumn:currentColumn+3]
 
-            newUniverseRow += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
-            universeList[currentRow] = newUniverseRow
+            if hexagonLayout:
+                # HEX
+                hexNeighbours = list("000000") # list of characters
+
+                # Top/bottom CELL 2 & CELL 3 - Same for ODD and EVEN
+                if (currentRow - 1) >= 0: # CELL 2
+                    hexNeighbours[2] = oldUniverseList[currentRow - 1][currentColumn]
+                if (currentRow + 1) < cellCountY: # CELL 3
+                    hexNeighbours[3] = oldUniverseList[currentRow + 1][currentColumn]
+
+                if (currentColumn % 2 == 0):
+                    if (currentColumn - 1) >= 0: # CELL 1 EVEN
+                        hexNeighbours[1] = oldUniverseList[currentRow][currentColumn - 1]
+                        if (currentRow - 1) >= 0: # CELL 0 EVEN
+                            hexNeighbours[0] = oldUniverseList[currentRow - 1][currentColumn - 1]
+                    if (currentColumn + 1) < cellCountX: # CELL 5 EVEN
+                        hexNeighbours[5] = oldUniverseList[currentRow][currentColumn + 1]
+                        if (currentRow - 1) >= 0: # CELL 4 EVEN
+                            hexNeighbours[4] = oldUniverseList[currentRow - 1][currentColumn + 1]
+                else:
+                    # Make string of ODD neighbours - Check ranges
+                    if (currentColumn - 1) >= 0: # CELL 0 ODD
+                        hexNeighbours[0] = oldUniverseList[currentRow][currentColumn - 1]
+                        if (currentRow - 1) >= 0: # CELL 1 ODD
+                            hexNeighbours[1] = oldUniverseList[currentRow - 1][currentColumn - 1]
+                    if (currentColumn + 1) < cellCountX: # CELL 4 ODD
+                        hexNeighbours[4] = oldUniverseList[currentRow][currentColumn + 1]
+                        if (currentRow + 1) < cellCountY: # CELL 5 ODD
+                            hexNeighbours[5] = oldUniverseList[currentRow + 1][currentColumn + 1]
+
+                # Get the new state by sending the currentCell value + string of all neighbours
+                hexNeighbours = "".join(hexNeighbours) # join the characters into 1 string
+                newUniverseRow += getNewState2DHex(oldUniverseList[currentRow][currentColumn], hexNeighbours)
+                universeList[currentRow] = newUniverseRow
+            else:
+                upperRowNeighbours = '000'
+                lowerRowNeighbours = '000'
+                currentRowNeighbours = oldUniverseList[currentRow][currentColumn:currentColumn+3]
+                if (currentRow - 1) >= 0:
+                    upperRowNeighbours = oldUniverseList[currentRow-1][currentColumn:currentColumn+3]
+                if (currentRow + 1) < cellCountY:
+                    lowerRowNeighbours = oldUniverseList[currentRow+1][currentColumn:currentColumn+3]
+
+                newUniverseRow += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
+                universeList[currentRow] = newUniverseRow
 
 #print RES
 

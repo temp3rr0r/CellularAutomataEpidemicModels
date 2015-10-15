@@ -110,6 +110,7 @@ for currentTimeStep in range(simulationIterations):
     for currentRow in range(cellCountY):
         newUniverseRow = ''
         for currentColumn in range(cellCountX):
+
             # HEX
             hexNeighbours = list("000000") # list of characters
 
