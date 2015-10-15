@@ -66,17 +66,17 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     ORANGE =   (255,   165,   0)
 
     # Set the height and width of the screen
-    screenHeight = 300
-    screenWidth = 300
+    screenHeight = 600
+    screenWidth = 600
 
+    cellSize = screenHeight / cellCountX
     if hexagonLayout:
-        screenHeight *= 2
-        screenWidth *= 2
+        screenHeight *= 0.85
+        screenWidth *= 1.04
 
-    size = [screenHeight, screenWidth]
+    size = [int(screenHeight), int(screenWidth)]
     screen = pygame.display.set_mode(size)
     screen.fill(WHITE)
-    cellSize = screenHeight / cellCountX
 
     #Loop until the user clicks the close button.
     clock = pygame.time.Clock()
@@ -87,7 +87,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     FPS = 60                           # desired max. framerate in frames per second.
     playtime = 0
     cycletime = 0
-    interval = 5#.15 # how long one single images should be displayed in seconds
+    interval = .15#.15 # how long one single images should be displayed in seconds
     picnr = 0
 
     #for currentStep in range(simulationIterations):
@@ -132,9 +132,9 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
                             drawSquare(screen, currentColour, currentColumn, cellSize, currentRow)
 
         # This MUST happen after all the other drawing commands.
+        # Go ahead and update the screen with what we've drawn.
         pygame.display.flip()
         #pygame.time.delay(1)
-        # Go ahead and update the screen with what we've drawn.
         #time.sleep(3)
 
 ''' Print the current generation '''
@@ -222,13 +222,13 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     return newState
 
 # SIS Model Parameters
-beta = 1.99#1.43247 # Chance to get S from neighbouring I
-gamma = 0#0.140 # Chance to get from I to R (or normal in our case)
-rho = 0#.33 # Chance ot get from R to normal (Loss of immunity rate)
+beta = 1.13247 # Chance to get S from neighbouring I
+gamma = 0.4140 # Chance to get from I to R (or normal in our case)
+rho = .33 # Chance ot get from R to normal (Loss of immunity rate)
 simulationIterations = 30
 cellCountX = 50
 cellCountY = 50
-hexagonLayout = True
+hexagonLayout = False
 
 # Init values
 susceptibleCharacter = 'S'
@@ -266,7 +266,7 @@ universeTimeSeries = []
 for currentTimeStep in range(simulationIterations):
 
     # Print the current generation
-    if currentTimeStep < 4:
+    if currentTimeStep < 0:
         printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter, recoveredCharacter)
 
     # Store the counts of I, S and the time iteration
