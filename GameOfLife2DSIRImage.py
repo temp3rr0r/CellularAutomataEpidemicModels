@@ -57,8 +57,8 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     ORANGE =   (255,   165,   0)
 
     # Set the height and width of the screen
-    screenHeight = 600
-    screenWidth = 600
+    screenHeight = 400
+    screenWidth = 400
 
     cellSize = screenHeight / cellCountX
     if hexagonLayout:
@@ -129,28 +129,28 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
         #time.sleep(3)
 
 ''' Print the current generation '''
-def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter, recoveredCharacter):
+def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, susceptibleCharacter, exposedCharacter, infectedCharacter, recoveredCharacter):
     print "TimeStep %3i:  " % currentTimeStep
     rowLabel = "  "
     for l in range(cellCountX):
         rowLabel += str(l) + " "
     print rowLabel
     for currentRow in range(cellCountY):
-        print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
+        print "%s %s" % (currentRow, universeList[currentRow].replace('0', susceptibleCharacter + " ").replace('1', exposedCharacter + " ").
                          replace('2', infectedCharacter + " ").replace('3', recoveredCharacter + " "))
 
-''' This method calculates the new state of the cell based on Van Neumann HEX neighborhood '''
+''' This method calculates the new state of the cell based on Moore HEX neighborhood '''
 def getNewState2DHex(selfCharacter, hexNeighbours):
     newState = selfCharacter
 
-    if selfCharacter == '0': # If Normal and there is an Infected close, be Susceptible
+    if selfCharacter == '0': # If Normal and there is an Infected close, be Exposed
         if (hexNeighbours.count('2') > 0):
             newState = '1'
     elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
         #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
         betaChance = (2 - np.random.uniform()) # UNIFORM
         #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-        if betaChance > 0 and betaChance < beta:
+        if betaChance > 0 and betaChance < sigma:
             newState = '2'
         else:
             if (hexNeighbours.count('2') > 0):
@@ -169,33 +169,41 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
         rhoChance = (1 - np.random.uniform()) # UNIFORM
         #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
-        if rhoChance < rho and rhoChance > 0:
+        if rhoChance < alpha and rhoChance > 0:
             newState = '0'
 
     return newState
 
-''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
+''' This method calculates the new state of the cell based on Moore neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     selfCharacter = currentRowNeighbours[1]
-
     newState = selfCharacter
 
-    if selfCharacter == '0': # If Normal and there is an Infected close, be Susceptible
+    #beta = .9 # Chance to get E from S
+    #sigma = .5 # Chance to get I from E
+    #gamma = .2 # Chance to get from I to R
+    #alpha = 0 # Chance to get from R to S (Loss of immunity rate)
+
+    if selfCharacter == '0': # If S and there is an Infected close, be Exposed
         if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
-            newState = '1'
-    elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-        betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
-        #betaChance = (2 - np.random.uniform()) # UNIFORM
-        #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-        if betaChance > 0 and betaChance < beta:
+            betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+            #betaChance = (1 - np.random.uniform()) # UNIFORM
+            #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+            if betaChance < beta and betaChance > 0:
+                newState = '1'
+    elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
+        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
+        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        if sigmaChance > 0 and sigmaChance < sigma:
             newState = '2'
         else:
             if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
                 newState = '1'
             else:
                 newState = '0'
-    elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered 'to recover'
+    elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
         gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
         #gammaChance = (1 - np.random.uniform()) # UNIFORM
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
@@ -203,29 +211,30 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
     elif selfCharacter == '3': # Recovered, immune for a while
-        rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #rhoChance = (1 - np.random.uniform()) # UNIFORM
-        #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        alphaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #alphaChance = (1 - np.random.uniform()) # UNIFORM
+        #alphaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
-        if rhoChance < rho and rhoChance > 0:
+        if alphaChance < alpha and alphaChance > 0:
             newState = '0'
 
     return newState
 
-# SIS Model Parameters
-beta = 1.4247 # Chance to get S from neighbouring I
-gamma = 0.14286 # Chance to get from I to R (or normal in our case)
-rho = .33 # Chance ot get from R to normal (Loss of immunity rate)
-simulationIterations = 70
-cellCountX = 33
-cellCountY = 33
+# SIR Model Parameters
+beta = .9 # Chance to get E from S
+sigma = .5 # Chance to get I from E
+gamma = .2 # Chance to get from I to R
+alpha = 0 # Chance to get from R to S (Loss of immunity rate)
+simulationIterations = 30
+cellCountX = 333
+cellCountY = 333
 hexagonLayout = False
 
 # Init values
 susceptibleCharacter = 'S'
+exposedCharacter = 'E'
 recoveredCharacter = 'R'
 infectedCharacter ='I'
-normalCharacter = '_'
 extremeEndValue = '0'
 timeStart = 0.0
 timeEnd = simulationIterations
@@ -240,7 +249,7 @@ for currentColumn in range(cellCountY):
     #     universe += '2'
     #     universe += ''.join('0' for universeColumn in range(cellCountX / 2))
     # else:
-    universe = ''.join(random.choice('00000000000000000002') for universeColumn in range(cellCountX))
+    universe = ''.join(random.choice('0000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
 # TODO: Fix init state vars
@@ -258,7 +267,7 @@ for currentTimeStep in range(simulationIterations):
 
     # Print the current generation
     if currentTimeStep < 0:
-        printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter, recoveredCharacter)
+        printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, susceptibleCharacter, exposedCharacter, infectedCharacter, recoveredCharacter)
 
     # Store the counts of I, S and the time iteration
     zeroCount = 0
@@ -345,8 +354,8 @@ for currentTimeStep in range(simulationIterations):
 #Ploting
 pl.subplot(2, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Normal')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-y', label='Susceptibles')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-y', label='Exposed')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
 pl.legend(loc=0)
 pl.title('All vs Time')
@@ -355,11 +364,11 @@ pl.ylabel('Count')
 
 pl.subplot(2, 1, 2)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-b', label='Normal')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-b', label='Susceptibles')
 pl.legend(loc=0)
-pl.title('Infected and Normal')
+pl.title('Infected and Susceptibles')
 pl.xlabel('Infected')
-pl.ylabel('Normal')
+pl.ylabel('Susceptibles')
 
 pl.show()
 
