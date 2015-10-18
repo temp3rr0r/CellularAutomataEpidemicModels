@@ -353,7 +353,7 @@ pl.ylabel('Count')
 
 pl.subplot(2, 1, 2)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-b', label='Susceptibles')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
 pl.legend(loc=0)
 pl.title('Infected and Susceptibles')
 pl.xlabel('Infected')

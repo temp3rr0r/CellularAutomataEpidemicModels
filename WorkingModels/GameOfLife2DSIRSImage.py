@@ -1,4 +1,4 @@
-""" A 2D CA model for SEIRS without mortality or birth """
+""" A 2D CA model for SIR without mortality or birth """
 
 import random
 import numpy as np
@@ -145,25 +145,13 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, susceptible
 def getNewState2DHex(selfCharacter, hexNeighbours):
     newState = selfCharacter
 
-    if selfCharacter == '0': # If S and there is an Infected close, be Exposed
+    if selfCharacter == '0': # If S and there is an Infected close, be Infected
         if (hexNeighbours.count('2') > 0):
             betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
             #betaChance = (1 - np.random.uniform()) # UNIFORM
             #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-            # TODO: Add binomial and Pet?
             if betaChance < beta and betaChance > 0:
-                newState = '1'
-    elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
-        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
-        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-        if sigmaChance > 0 and sigmaChance < sigma:
-            newState = '2'
-        else:
-            if (hexNeighbours.count('2') > 0):
-                newState = '1'
-            else:
-                newState = '0'
+                newState = '2'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
         gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
         #gammaChance = (1 - np.random.uniform()) # UNIFORM
@@ -187,29 +175,13 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     selfCharacter = currentRowNeighbours[1]
     newState = selfCharacter
 
-    #beta = .9 # Chance to get E from S
-    #sigma = .5 # Chance to get I from E
-    #gamma = .2 # Chance to get from I to R
-    #alpha = 0 # Chance to get from R to S (Loss of immunity rate)
-
-    if selfCharacter == '0': # If S and there is an Infected close, be Exposed
+    if selfCharacter == '0': # If S and there is an Infected close, be Infected
         if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
             betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
             #betaChance = (1 - np.random.uniform()) # UNIFORM
             #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
             if betaChance < beta and betaChance > 0:
-                newState = '1'
-    elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
-        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
-        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-        if sigmaChance > 0 and sigmaChance < sigma:
-            newState = '2'
-        else:
-            if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
-                newState = '1'
-            else:
-                newState = '0'
+                newState = '2'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
         gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
         #gammaChance = (1 - np.random.uniform()) # UNIFORM
@@ -251,7 +223,7 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 # Rates - Units are 1/time in days
 
 beta = 1.0 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
-sigma = .9 # Incubation Rate: E -> I (or epsilon)
+#sigma = .9 # Incubation Rate: E -> I (or epsilon)
 gamma = .14 #.2 # Recovery Rate: I -> R
 alpha = .22 # Immunity Loss Rate: I -> S
 mu = 0 # TODO: Mortality Rate
@@ -267,7 +239,7 @@ hexagonLayout = False
 susceptibleCharacter = 'S'
 exposedCharacter = 'E'
 recoveredCharacter = 'R'
-infectedCharacter ='I'
+infectedCharacter = 'I'
 extremeEndValue = '0'
 timeStart = 0.0
 timeEnd = simulationIterations
@@ -388,7 +360,6 @@ for currentTimeStep in range(simulationIterations):
 pl.subplot(2, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(1), RES), '-y', label='Exposed')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
 pl.legend(loc=0)
 pl.title('All vs Time')
