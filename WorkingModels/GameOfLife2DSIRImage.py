@@ -1,4 +1,4 @@
-""" A 2D CA model for SIS without mortality or birth """
+""" A 2D CA model for SIR without mortality or birth """
 
 import random
 import numpy as np
@@ -158,7 +158,7 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if gammaChance < gamma and gammaChance > 0:
-            newState = '0'
+            newState = '3'
 
     return newState
 
@@ -181,7 +181,7 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if gammaChance < gamma and gammaChance > 0:
-            newState = '0'
+            newState = '3'
 
     return newState
 
@@ -219,7 +219,7 @@ delta = 0 # TODO: Infectious Mortality Rate
 simulationIterations = 70
 cellCountX = 100
 cellCountY = 100
-hexagonLayout = False
+hexagonLayout = True
 
 # Init values
 susceptibleCharacter = 'S'
@@ -346,6 +346,7 @@ for currentTimeStep in range(simulationIterations):
 pl.subplot(2, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
+pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
 pl.legend(loc=0)
 pl.title('All vs Time')
 pl.xlabel('Time')
