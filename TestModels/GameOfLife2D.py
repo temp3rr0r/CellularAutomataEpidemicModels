@@ -1,20 +1,9 @@
+""" A Test 2D CA model """
+
 import random
 import numpy as np
 import pylab as pl
 from operator import itemgetter
-
-def printGenerationUniverseHex(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter):
-    print "TimeStep %3i:  " % currentTimeStep
-    rowLabel = "   "
-    for l in range(cellCountX):
-        rowLabel += str(l) + " "
-    print rowLabel
-    for currentRow in range(cellCountY):
-        cellGap = ''
-        if currentRow % 2 == 1:
-            cellGap = '  '
-        print "%s%s  %s" % (currentRow, cellGap, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
-                         replace('2', infectedCharacter + " "))
 
 ''' Print the current generation '''
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter):
@@ -27,19 +16,34 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
         print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
                          replace('2', infectedCharacter + " "))
 
-''' This method calculates the new state of the cell based on Van Neumann HEX neighborhood '''
-def getNewState2DHex(selfCharacter, hexNeighbours):
+''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
+def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
     newState = '0'
+
+    leftCharacter = currentRowNeighbours[0]
+    selfCharacter = currentRowNeighbours[1]
+    rightCharacter = currentRowNeighbours[2]
+
+    upperLeftCharacter = upperRowNeighbours[0]
+    upperCenterCharacter = upperRowNeighbours[1]
+    upperRightCharacter = upperRowNeighbours[2]
+
+    lowerLeftCharacter = lowerRowNeighbours[0]
+    lowerCenterCharacter = lowerRowNeighbours[1]
+    lowerRightCharacter = lowerRowNeighbours[2]
+
     newState = selfCharacter
 
     if selfCharacter == '0': # If Normal and there is an Infected close, be Susceptible
-        if (hexNeighbours.count('2') > 0):
+        if leftCharacter == '2' or rightCharacter == '2' or\
+            upperLeftCharacter == '2' or upperRightCharacter == '2' or upperCenterCharacter == '2'\
+                or lowerLeftCharacter == '2' or lowerRightCharacter == '2' or lowerCenterCharacter == '2':
             newState = '1'
     else:
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
             #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
-            #betaChance = (2 - np.random.uniform()) # UNIFORM
-            betaChance = (2 - (np.random.poisson(1) % 10) * 0.1) # POISSON
+            betaChance = (2 - np.random.uniform()) # UNIFORM
+            #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
             if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
@@ -47,8 +51,8 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
         else:
             if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
                 #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-                #gammaChance = (1 - np.random.uniform()) # UNIFORM
-                gammaChance = (1 - (np.random.poisson(1) % 10) * 0.1) # POISSON
+                gammaChance = (1 - np.random.uniform()) # UNIFORM
+                #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
                 if gammaChance < gamma and gammaChance > 0:
                     newState = '1'
@@ -89,8 +93,17 @@ RES = [InitVariables]
 for currentTimeStep in range(simulationIterations):
 
     # Print the current generation
-    if currentTimeStep < 4:
+    if currentTimeStep == 1:
         printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter)
+    #print "TimeStep %3i:  " % currentTimeStep
+    #rowLabel = "  "
+    #for l in range(cellCountX):
+    #    rowLabel += str(l) + " "
+    #print rowLabel
+    #for currentRow in range(cellCountY):
+    #    print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
+    print
+    #                     replace('2', infectedCharacter + " "))
 
     # Store the counts of I, S and the time iteration
     zeroCount = 0
@@ -105,47 +118,24 @@ for currentTimeStep in range(simulationIterations):
     # Put extreme ends neighbouring cells temporarily on the old universe
     oldUniverseList = []
     for currentRow in range(cellCountY):
-        oldUniverseList.append(universeList[currentRow])
+        oldUniverseList.append(extremeEndValue + universeList[currentRow] + extremeEndValue)
 
     for currentRow in range(cellCountY):
         newUniverseRow = ''
         for currentColumn in range(cellCountX):
+            upperRowNeighbours = '000'
+            lowerRowNeighbours = '000'
+            currentRowNeighbours = oldUniverseList[currentRow][currentColumn:currentColumn+3]
+            if (currentRow - 1) >= 0:
+                upperRowNeighbours = oldUniverseList[currentRow-1][currentColumn:currentColumn+3]
+            if (currentRow + 1) < cellCountY:
+                lowerRowNeighbours = oldUniverseList[currentRow+1][currentColumn:currentColumn+3]
 
-            # HEX
-            hexNeighbours = list("000000") # list of characters
-
-            # Top/bottom CELL 2 & CELL 3 - Same for ODD and EVEN
-            if (currentRow - 1) >= 0: # CELL 2
-                hexNeighbours[2] = oldUniverseList[currentRow - 1][currentColumn]
-            if (currentRow + 1) < cellCountY: # CELL 3
-                hexNeighbours[3] = oldUniverseList[currentRow + 1][currentColumn]
-
-            if (currentColumn % 2 == 0):
-                if (currentColumn - 1) >= 0: # CELL 1 EVEN
-                    hexNeighbours[1] = oldUniverseList[currentRow][currentColumn - 1]
-                    if (currentRow - 1) >= 0: # CELL 0 EVEN
-                        hexNeighbours[0] = oldUniverseList[currentRow - 1][currentColumn - 1]
-                if (currentColumn + 1) < cellCountX: # CELL 5 EVEN
-                    hexNeighbours[5] = oldUniverseList[currentRow][currentColumn + 1]
-                    if (currentRow - 1) >= 0: # CELL 4 EVEN
-                        hexNeighbours[4] = oldUniverseList[currentRow - 1][currentColumn + 1]
-            else:
-                # Make string of ODD neighbours - Check ranges
-                if (currentColumn - 1) >= 0: # CELL 0 ODD
-                    hexNeighbours[0] = oldUniverseList[currentRow][currentColumn - 1]
-                    if (currentRow - 1) >= 0: # CELL 1 ODD
-                        hexNeighbours[1] = oldUniverseList[currentRow - 1][currentColumn - 1]
-                if (currentColumn + 1) < cellCountX: # CELL 4 ODD
-                    hexNeighbours[4] = oldUniverseList[currentRow][currentColumn + 1]
-                    if (currentRow + 1) < cellCountY: # CELL 5 ODD
-                        hexNeighbours[5] = oldUniverseList[currentRow + 1][currentColumn + 1]
-
-            # Get the new state by sending the currentCell value + string of all neighbours
-            hexNeighbours = "".join(hexNeighbours) # join the characters into 1 string
-            newUniverseRow += getNewState2DHex(oldUniverseList[currentRow][currentColumn], hexNeighbours)
+            newUniverseRow += getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours)
             universeList[currentRow] = newUniverseRow
 
 #print RES
+
 
 #Ploting
 pl.subplot(3, 1, 1)

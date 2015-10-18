@@ -1,3 +1,5 @@
+""" A 2D CA model for SEIRS without mortality or birth """
+
 import random
 import numpy as np
 import pylab as pl
@@ -57,8 +59,8 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     ORANGE =   (255,   165,   0)
 
     # Set the height and width of the screen
-    screenHeight = 400
-    screenWidth = 400
+    screenHeight = 800
+    screenWidth = 800
 
     cellSize = screenHeight / cellCountX
     if hexagonLayout:
@@ -115,7 +117,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '2':
                             currentColour = RED
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '3':
-                            currentColour = BLUE
+                            currentColour = GREEN
 
                         if hexagonLayout:
                             drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow)
@@ -143,33 +145,38 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, susceptible
 def getNewState2DHex(selfCharacter, hexNeighbours):
     newState = selfCharacter
 
-    if selfCharacter == '0': # If Normal and there is an Infected close, be Exposed
+    if selfCharacter == '0': # If S and there is an Infected close, be Exposed
         if (hexNeighbours.count('2') > 0):
-            newState = '1'
-    elif selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
-        #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
-        betaChance = (2 - np.random.uniform()) # UNIFORM
-        #betaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-        if betaChance > 0 and betaChance < sigma:
+            betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+            #betaChance = (1 - np.random.uniform()) # UNIFORM
+            #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+            # TODO: Add binomial and Pet?
+            if betaChance < beta and betaChance > 0:
+                newState = '1'
+    elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
+        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
+        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        if sigmaChance > 0 and sigmaChance < sigma:
             newState = '2'
         else:
             if (hexNeighbours.count('2') > 0):
                 newState = '1'
             else:
                 newState = '0'
-    elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered 'to recover'
-        #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        gammaChance = (1 - np.random.uniform()) # UNIFORM
+    elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
+        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #gammaChance = (1 - np.random.uniform()) # UNIFORM
         #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
     elif selfCharacter == '3': # Recovered, immune for a while
-        #rhoChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        rhoChance = (1 - np.random.uniform()) # UNIFORM
-        #rhoChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        alphaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
+        #alphaChance = (1 - np.random.uniform()) # UNIFORM
+        #alphaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
 
-        if rhoChance < alpha and rhoChance > 0:
+        if alphaChance < alpha and alphaChance > 0:
             newState = '0'
 
     return newState
@@ -220,14 +227,40 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     return newState
 
-# SIR Model Parameters
-beta = .9 # Chance to get E from S
-sigma = .5 # Chance to get I from E
-gamma = .2 # Chance to get from I to R
-alpha = 0 # Chance to get from R to S (Loss of immunity rate)
-simulationIterations = 30
-cellCountX = 333
-cellCountY = 333
+# TODO: Add Seed parameter
+# TODO: Add popoulation density
+# TODO: Non linearity coefficient?
+# TODO: Add "Expected Numerical Results" graph versus "Spatial Results"
+
+# SEIR Model Parameters
+
+# Salmonela rates:
+# E->I: 0.33
+# S->E: 0.18
+# E->I: 0.01
+
+# Salmonela Cerro - Dairy herd http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2870801/
+# S->E: 0.9
+# Birt and Death: 0.03
+# Indirect Transmission: 10^-12
+# I->R: 0.14
+# R->S: 0.22
+# Environment pathogen removal: 10^9
+# Pathogen addition to environment due to animal shedding: 0.99
+
+# Rates - Units are 1/time in days
+
+beta = 1.0 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
+sigma = .9 # Incubation Rate: E -> I (or epsilon)
+gamma = .14 #.2 # Recovery Rate: I -> R
+alpha = .22 # Immunity Loss Rate: I -> S
+mu = 0 # TODO: Mortality Rate
+muStart = 0 # TODO: Birth Rate
+delta = 0 # TODO: Infectious Mortality Rate
+
+simulationIterations = 70
+cellCountX = 100
+cellCountY = 100
 hexagonLayout = False
 
 # Init values

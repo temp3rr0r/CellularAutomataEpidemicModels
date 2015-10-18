@@ -1,3 +1,5 @@
+""" A 1D CA model in ASCII """
+
 import random
 import numpy as np
 import pylab as pl
@@ -41,7 +43,7 @@ susceptibleCharacter = 'S'
 infectedCharacter ='I'
 normalCharacter = ' '
 maxgenerations = 200
-cellcount = 300
+cellcount = 30
 offendvalue = '0'
 
 t_start = 0.0

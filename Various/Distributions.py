@@ -1,3 +1,5 @@
+""" Distribution function checking script """
+
 import numpy as np
 #s = np.random.poisson(20, 10000)
 s = (np.random.poisson(1, 10000) % 10) * 0.1
