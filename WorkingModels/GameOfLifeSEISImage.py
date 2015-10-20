@@ -7,6 +7,17 @@ from operator import itemgetter
 # Import a library of functions called 'pygame'
 import pygame
 
+def getRandomNumber(distribution):
+    if distribution == 0:
+        returningRandomNumber = np.random.uniform() # UNIFORM
+    elif distribution == 1:
+        returningRandomNumber = np.random.normal(.5, .1) # NORMAL
+    elif distribution == 2:
+        returningRandomNumber = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
+    elif distribution == 3:
+        returningRandomNumber = np.random.poisson(2) * .1 # POISSON
+    return returningRandomNumber
+
 def drawSquare(screen, currentColour, currentColumn, cellSize, currentRow):
     pygame.draw.rect(screen, currentColour, [currentColumn * cellSize, currentRow * cellSize, (currentColumn + 1)
                                              * cellSize, (currentRow + 1) * cellSize])
@@ -147,16 +158,11 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
 
     if selfCharacter == '0': # If S and there is an Infected close, be Exposed
         if (hexNeighbours.count('2') > 0):
-            betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-            #betaChance = (1 - np.random.uniform()) # UNIFORM
-            #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-            # TODO: Add binomial and Pet?
+            betaChance = getRandomNumber(0)
             if betaChance < beta and betaChance > 0:
                 newState = '1'
     elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
-        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
-        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        sigmaChance = getRandomNumber(0)
         if sigmaChance > 0 and sigmaChance < sigma:
             newState = '2'
         else:
@@ -165,10 +171,7 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
             else:
                 newState = '0'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
-        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #gammaChance = (1 - np.random.uniform()) # UNIFORM
-        #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-
+        gammaChance = getRandomNumber(0)
         if gammaChance < gamma and gammaChance > 0:
             newState = '0'
 

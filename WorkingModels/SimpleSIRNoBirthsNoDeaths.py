@@ -34,8 +34,10 @@ gamma=0.14286
 
 TimeStep=1.0
 TimeRange=70.0
-InitSusceptibles=1-1e-6
-InitInfected=1e-6
+#InitInfected=1e-6
+#InitSusceptibles=1-1e-6
+InitInfected = 0.0045
+InitSusceptibles = 1 - InitInfected
 InitVariables = (InitSusceptibles, InitInfected, 0.0, 0.0)
 
 
