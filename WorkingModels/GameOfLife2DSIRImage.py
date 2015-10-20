@@ -158,15 +158,11 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
 
     if selfCharacter == '0': # If S and there is an Infected close, be Infected
         if (hexNeighbours.count('2') > 0):
-            betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-            #betaChance = (1 - np.random.uniform()) # UNIFORM
-            #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+            betaChance = getRandomNumber(0)
             if betaChance < beta and betaChance > 0:
                 newState = '2'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
-        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #gammaChance = (1 - np.random.uniform()) # UNIFORM
-        #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        gammaChance = getRandomNumber(0)
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
