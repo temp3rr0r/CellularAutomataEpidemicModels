@@ -190,15 +190,11 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     if selfCharacter == '0': # If S and there is an Infected close, be Exposed
         if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
-            betaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-            #betaChance = (1 - np.random.uniform()) # UNIFORM
-            #betaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+            betaChance = getRandomNumber(0)
             if betaChance < beta and betaChance > 0:
                 newState = '1'
     elif selfCharacter == '1': # if Exposed, calculate the probability to be Infected
-        sigmaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #sigmaChance = (2 - np.random.uniform()) # UNIFORM
-        #sigmaChance = (2 - (np.random.poisson(2) % 10) * 0.1) # POISSON
+        sigmaChance = getRandomNumber(0)
         if sigmaChance > 0 and sigmaChance < sigma:
             newState = '2'
         else:
@@ -207,10 +203,7 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
             else:
                 newState = '0'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
-        gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
-        #gammaChance = (1 - np.random.uniform()) # UNIFORM
-        #gammaChance = (1 - (np.random.poisson(2) % 10) * 0.1) # POISSON
-
+        gammaChance = getRandomNumber(0)
         if gammaChance < gamma and gammaChance > 0:
             newState = '0'
 
@@ -239,17 +232,17 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
 # Rates - Units are 1/time in days
 
-beta = 1.0 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
+beta = .4247 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
 sigma = .9 # Incubation Rate: E -> I (or epsilon)
-gamma = .14 #.2 # Recovery Rate: I -> R
+gamma = .14286 #.2 # Recovery Rate: I -> R
 alpha = .22 # Immunity Loss Rate: I -> S
 mu = 0 # TODO: Mortality Rate
 muStart = 0 # TODO: Birth Rate
 delta = 0 # TODO: Infectious Mortality Rate
 
 simulationIterations = 70
-cellCountX = 100
-cellCountY = 100
+cellCountX = 150
+cellCountY = 150
 hexagonLayout = False
 
 # Init values
