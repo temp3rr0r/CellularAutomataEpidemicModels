@@ -211,17 +211,17 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
 # Rates - Units are 1/time in days
 
-beta = .4247 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
+beta =1# .4247 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
 #sigma = .9 # Incubation Rate: E -> I (or epsilon)
-gamma = .14286 #.2 # Recovery Rate: I -> R
+gamma =0# .14286 #.2 # Recovery Rate: I -> R
 #alpha = .22 # Immunity Loss Rate: I -> S
 mu = 0 # TODO: Mortality Rate
 muStart = 0 # TODO: Birth Rate
 delta = 0 # TODO: Infectious Mortality Rate
 
 simulationIterations = 70
-cellCountX = 150
-cellCountY = 150
+cellCountX = 25
+cellCountY = 25
 hexagonLayout = False
 
 # Init values
