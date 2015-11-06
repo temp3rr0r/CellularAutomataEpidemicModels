@@ -3,6 +3,7 @@
 import random
 import numpy as np
 import pylab as pl
+
 from operator import itemgetter
 # Import a library of functions called 'pygame'
 import pygame
@@ -220,8 +221,8 @@ muStart = 0 # TODO: Birth Rate
 delta = 0 # TODO: Infectious Mortality Rate
 
 simulationIterations = 70
-cellCountX = 25
-cellCountY = 25
+cellCountX = 100
+cellCountY = 100
 hexagonLayout = False
 
 # Init values
@@ -239,11 +240,12 @@ universeList = []
 # Randomise first state
 for currentColumn in range(cellCountY):
     # if currentColumn == (cellCountY / 2):
-    #     universe = ''.join('0' for universeColumn in range((cellCountX / 2) - 1))
-    #     universe += '2'
-    #     universe += ''.join('0' for universeColumn in range(cellCountX / 2))
+        # universe = ''.join('0' for universeColumn in range((cellCountX / 2) - 1))
+        # universe += '2'
+        # universe += ''.join('0' for universeColumn in range(cellCountX / 2))
     # else:
-    universe = ''.join(random.choice('0000000002') for universeColumn in range(cellCountX))
+    #     universe = ''.join(random.choice('0') for universeColumn in range(cellCountX))
+    universe = ''.join(random.choice('000000000000000000000000000000000000000000000000000000000002') for universeColumn in range(cellCountX))
     universeList.append(universe)
 
 # TODO: Fix init state vars
@@ -346,15 +348,16 @@ for currentTimeStep in range(simulationIterations):
 #print(universeTimeSeries)
 
 #Ploting
-pl.subplot(2, 1, 1)
+pl.subplot(1, 1, 1)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
 pl.legend(loc=0)
-pl.title('All vs Time')
+pl.title('CA SIR')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
+"""
 pl.subplot(2, 1, 2)
 pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
 pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
@@ -362,7 +365,7 @@ pl.legend(loc=0)
 pl.title('Infected and Susceptibles')
 pl.xlabel('Infected')
 pl.ylabel('Susceptibles')
-
+"""
 pl.show()
 
 drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries)

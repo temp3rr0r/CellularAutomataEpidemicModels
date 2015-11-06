@@ -29,14 +29,16 @@ import scipy.integrate as spi
 import numpy as np
 import pylab as pl
 
-beta=1.4247
-gamma=0.14286
+beta=.4247
+gamma=.14286
+
+populationCount = 10000
 
 TimeStep=1.0
 TimeRange=70.0
 #InitInfected=1e-6
 #InitSusceptibles=1-1e-6
-InitInfected = 0.0045
+InitInfected = 0.0016
 InitSusceptibles = 1 - InitInfected
 InitVariables = (InitSusceptibles, InitInfected, 0.0, 0.0)
 
@@ -69,20 +71,21 @@ RES = spi.odeint(diff_eqs, InitVariables, t_range)
 print RES
 
 #Ploting
-pl.subplot(211)
-pl.plot(RES[:,0], '-g', label='Susceptibles')
-pl.plot(RES[:,2], '-k', label='Recovereds')
+pl.subplot(111)
+pl.plot(RES[:,0] * populationCount, '-b', label='Susceptibles')
+pl.plot(RES[:,2] * populationCount, '-g', label='Recovereds')
+pl.plot(RES[:,1] * populationCount, '-r', label='Infected')
 pl.legend(loc=0)
-pl.title('Program_2_1.py')
+pl.title('Numerical SIR')
 pl.xlabel('Time')
 pl.ylabel('Susceptibles and Recovereds')
 
-pl.subplot(212)
-pl.plot(RES[:,0], '-b', label='Susceptibles')
-pl.plot(RES[:,1], '-r', label='Infected')
-pl.legend(loc=0)
-pl.xlabel('Time')
-pl.ylabel('Susceptibles and Infectious')
+#pl.subplot(212)
+#pl.plot(RES[:,0], '-b', label='Susceptibles')
+#pl.plot(RES[:,1], '-r', label='Infected')
+#pl.legend(loc=0)
+#pl.xlabel('Time')
+#pl.ylabel('Susceptibles and Infectious')
 pl.show()
 
 
