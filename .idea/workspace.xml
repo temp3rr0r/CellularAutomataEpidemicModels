@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" afterPath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleSIRNoBirthsNoDeaths.iws" />
@@ -28,13 +26,13 @@
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1444743916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSEIRImage.coverage" NAME="GameOfLife2DSEIRImage Coverage Results" MODIFIED="1445148363860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage__1_.coverage" NAME="GameOfLife2DSIRImage (1) Coverage Results" MODIFIED="1445335245409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446810306297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446811377689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1444836494553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1444838613913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1445589404930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSIR.coverage" NAME="GameOfLife2DSIR Coverage Results" MODIFIED="1444841817825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1446749763028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1446805820998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1446816653515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1446816705634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1445330266437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife1D.coverage" NAME="GameOfLife1D Coverage Results" MODIFIED="1445151431866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLatticeMoore.coverage" NAME="CoupledLatticeMoore Coverage Results" MODIFIED="1446749664093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
@@ -57,27 +55,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="VectorTest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53678477">
-              <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameOfLife2DSIRImage.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameOfLife2DSIRImage.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="112" selection-end-column="75" />
+              <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
               <folding>
                 <element signature="e#58#71#0" expanded="true" />
-                <element signature="e#245#667#0" expanded="false" />
-                <element signature="e#1028#2194#0" expanded="false" />
+                <element signature="e#244#666#0" expanded="false" />
+                <element signature="e#748#944#0" expanded="false" />
+                <element signature="e#1027#2193#0" expanded="false" />
+                <element signature="e#2271#5411#0" expanded="false" />
+                <element signature="e#5603#6033#0" expanded="false" />
+                <element signature="e#6180#6686#0" expanded="false" />
+                <element signature="e#6859#7488#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -87,23 +78,9 @@
         <entry file="file://$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+              <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
               <folding>
                 <element signature="e#1673#1702#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameOfLife2DSEIRSImage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSEIRSImage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="399" column="0" selection-start-line="399" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
-              <folding>
-                <element signature="e#60#73#0" expanded="true" />
-                <element signature="e#524#946#0" expanded="false" />
-                <element signature="e#1029#2195#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -148,8 +125,8 @@
         <option value="$PROJECT_DIR$/WorkingModels/SimpleSIRWIthBirthsAndDeaths.py" />
         <option value="$PROJECT_DIR$/WorkingModels/CoupledLatticeMoore.py" />
         <option value="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" />
-        <option value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" />
         <option value="$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py" />
+        <option value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" />
       </list>
     </option>
   </component>
@@ -190,7 +167,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -257,6 +233,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -275,7 +252,7 @@
       <recent name="C:\Users\madks_000\PycharmProjects\SimpleSIRNoBirthsNoDeaths\Various" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.VectorTest">
+  <component name="RunManager" selected="Python.GameOfLife2DSIRImage">
     <configuration default="false" name="GameOfLife2DSIRImage" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -563,9 +540,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.VectorTest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.GameOfLife2DSIRImage" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GameOfLife2DSIRImage" />
+        <item index="1" class="java.lang.String" itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
+        <item index="2" class="java.lang.String" itemvalue="Python.VectorTest" />
         <item index="3" class="java.lang.String" itemvalue="Python.CoupledLatticeMoore" />
         <item index="4" class="java.lang.String" itemvalue="Python.CoupledLattice" />
       </list>
@@ -774,33 +751,39 @@
       <option name="project" value="LOCAL" />
       <updated>1445596171804</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Added first &quot;random walking&quot; vector agent in a 2D plane">
+      <created>1446810403387</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1446810403387</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12934947" sideWeight="0.7468355" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1323752" sideWeight="0.7236181" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3007752" sideWeight="0.5078125" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33724833" sideWeight="0.4921875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12934947" sideWeight="0.25316456" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.49703264" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1323752" sideWeight="0.2763819" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33668342" sideWeight="0.4921875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.49703264" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -815,7 +798,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Before testing the 2D SIS extreme values" />
     <MESSAGE value="Printing via method" />
     <MESSAGE value="Running Hex 2D SIS cellular automata" />
     <MESSAGE value="Changes in the HEX version. Resolved an issue with gamma and beta" />
@@ -840,7 +822,8 @@
     <MESSAGE value="After fixing SEIRS and SIRS distributions" />
     <MESSAGE value="After fixing SIS and SEIS distributions" />
     <MESSAGE value="After adding the models:&#10;- Coupled lattice 2D with Von Neumann neighborhood&#10;- Coupled lattice 2D with Moore neighborhood&#10;- ForestFire 2D CA&#10;- Numerical SIR with Births and Deaths" />
-    <option name="LAST_COMMIT_MESSAGE" value="After adding the models:&#10;- Coupled lattice 2D with Von Neumann neighborhood&#10;- Coupled lattice 2D with Moore neighborhood&#10;- ForestFire 2D CA&#10;- Numerical SIR with Births and Deaths" />
+    <MESSAGE value="Added first &quot;random walking&quot; vector agent in a 2D plane" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added first &quot;random walking&quot; vector agent in a 2D plane" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1178,46 +1161,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py">
+    <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="36" selection-start-line="111" selection-start-column="36" selection-end-line="112" selection-end-column="75" />
-          <folding>
-            <element signature="e#58#71#0" expanded="true" />
-            <element signature="e#245#667#0" expanded="false" />
-            <element signature="e#1028#2194#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.5831063">
+          <caret line="117" column="19" selection-start-line="117" selection-start-column="19" selection-end-line="117" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSEIRSImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.8719346">
           <caret line="399" column="0" selection-start-line="399" selection-start-column="0" selection-end-line="399" selection-end-column="0" />
-          <folding>
-            <element signature="e#60#73#0" expanded="true" />
-            <element signature="e#524#946#0" expanded="false" />
-            <element signature="e#1029#2195#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="63" selection-start-line="74" selection-start-column="63" selection-end-line="74" selection-end-column="63" />
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
             <element signature="e#1673#1702#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py">
+    <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53678477">
-          <caret line="116" column="21" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="221" column="23" selection-start-line="221" selection-start-column="23" selection-end-line="221" selection-end-column="23" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#58#71#0" expanded="true" />
+            <element signature="e#244#666#0" expanded="false" />
+            <element signature="e#748#944#0" expanded="false" />
+            <element signature="e#1027#2193#0" expanded="false" />
+            <element signature="e#2271#5411#0" expanded="false" />
+            <element signature="e#5603#6033#0" expanded="false" />
+            <element signature="e#6180#6686#0" expanded="false" />
+            <element signature="e#6859#7488#0" expanded="false" />
           </folding>
         </state>
       </provider>

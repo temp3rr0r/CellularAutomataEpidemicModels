@@ -3,7 +3,6 @@
 import random
 import numpy as np
 import pylab as pl
-
 from operator import itemgetter
 # Import a library of functions called 'pygame'
 import pygame
