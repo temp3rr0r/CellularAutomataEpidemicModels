@@ -98,8 +98,8 @@ class Walker:
     def walkPerlinNoise(self):
         self.T += 1
 
-        stepX = int(self.perlinNoiseNumber(self.T, timeEnd) * 7)
-        stepY = int(self.perlinNoiseNumber(abs(timeEnd - self.T), timeEnd) * 12)
+        stepX = int(self.perlinNoiseNumber(self.T, timeEnd) * 20)
+        stepY = int(self.perlinNoiseNumber(abs(timeEnd - self.T), timeEnd) * 20)
 
         newX = self.X + stepX
         newY = self.Y + stepY
