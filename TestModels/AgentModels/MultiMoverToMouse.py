@@ -40,6 +40,9 @@ class DrawHandler:
         mouseY = 0
         mousePoint = PVector(0, 0)  # Point of mouse vector
 
+        moverObjectCount = 20
+        moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
+
         while mainloop:
 
             milliseconds = clock.tick(maxFPS)  # milliseconds passed since last frame
@@ -53,8 +56,7 @@ class DrawHandler:
                     currentTimeStep += 1
 
                 currentColour = BLACK
-                
-                walker = MoverToMouse()
+
                 for i in timeRange:
                     event = pygame.event.poll()
                     if event.type == pygame.QUIT:
@@ -64,54 +66,38 @@ class DrawHandler:
 
                     mousePoint = PVector(mouseX, mouseY)
 
-                    mousePointDirection = PVector(mouseX, mouseY)
-                    mousePointDirection.subtract(walker.Location)
-                    mousePointDirection.normalize()
-                    mousePointDirection.multiply(2.5)
-
-                    tempMousePoint = PVector(mouseX, mouseY)
-                    tempMousePoint.subtract(walker.Location)
-
-                    #walker.walk()
-                    #walker.walkStep()
-                    #walker.walkStepRight()
-                    #walker.walkDistribution()
-                    #walker.walkPerlinNoise()
-                    #walker.walkVector()
-                    walker.walkVectorAcceleration(mousePointDirection)
-
                     screen.fill(WHITE) # Refresh screen
 
-                    # Draw point
-                    #screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
+                    for currentWalker in moverToMouseList:
+                        mousePointDirection = PVector(mouseX, mouseY)
+                        mousePointDirection.subtract(currentWalker.Location)
+                        mousePointDirection.normalize()
+                        mousePointDirection.multiply(2.5)
 
-                    # Draw triangle
-                    # triangleSide = 10 # pixels
-                    # a = [walker.X, walker.Y - (triangleSide /2 )]
-                    # b = [walker.X + (triangleSide /2 ), walker.Y + (triangleSide /2 )]
-                    # c = [walker.X - (triangleSide /2 ), walker.Y + (triangleSide /2 )]
-                    # pygame.draw.polygon(screen, currentColour, [a, b, c])
+                        tempMousePoint = PVector(mouseX, mouseY)
+                        tempMousePoint.subtract(currentWalker.Location)
+
+                        currentWalker.walkVectorAcceleration(mousePointDirection)
 
 
-                    # Draw circle
-                    circleRadius = 15
-                    circleThickness = 3
-                    pygame.draw.circle(screen, BLUE, (int(walker.Location.X), int(walker.Location.Y)), circleRadius, 0)
-                    pygame.draw.circle(screen, BLACK, (int(walker.Location.X), int(walker.Location.Y)), circleRadius, circleThickness)
+                        # Draw point
+                        #screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
 
-                    pygame.display.set_caption("TimeStep %3i:  " % walker.T)
+                        # Draw triangle
+                        # triangleSide = 10 # pixels
+                        # a = [walker.X, walker.Y - (triangleSide /2 )]
+                        # b = [walker.X + (triangleSide /2 ), walker.Y + (triangleSide /2 )]
+                        # c = [walker.X - (triangleSide /2 ), walker.Y + (triangleSide /2 )]
+                        # pygame.draw.polygon(screen, currentColour, [a, b, c])
 
-                    label4 = myfont.render("Magnitude from mouse: " + str(tempMousePoint.magnitude()), 1, RED)
-                    screen.blit(label4, (10, 35)) # Draw the text
 
-                    center = PVector(cellCountX / 2, cellCountY / 2)
-                    center.subtract(walker.Location)
-                    label = myfont.render("Magnitude from Center: " + str(center.magnitude()), 1, RED)
-                    label2 = myfont.render("Magnitude from 0,0: " + str(walker.Location.magnitude()), 1, RED)
-                    label3 = myfont.render("Magnitude of Velocity: " + str(walker.Velocity.magnitude()), 1, RED)
-                    screen.blit(label, (10, 5)) # Draw the text
-                    screen.blit(label2, (10, 15)) # Draw the text
-                    screen.blit(label3, (10, 25)) # Draw the text
+                        # Draw circle
+                        circleRadius = 15
+                        circleThickness = 3
+                        pygame.draw.circle(screen, BLUE, (int(currentWalker.Location.X), int(currentWalker.Location.Y)), circleRadius, 0)
+                        pygame.draw.circle(screen, BLACK, (int(currentWalker.Location.X), int(currentWalker.Location.Y)), circleRadius, circleThickness)
+
+                    pygame.display.set_caption("TimeStep %3i:  " % currentWalker.T)
 
                     pygame.time.wait(delayAmount) # Delay the update of the walker
 
