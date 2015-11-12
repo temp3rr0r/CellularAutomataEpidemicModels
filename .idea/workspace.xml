@@ -33,7 +33,7 @@
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446811377689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1444836494553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1444838613913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447371907948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447372666580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1445589404930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$MoverToMouse.coverage" NAME="MoverToMouse Coverage Results" MODIFIED="1447353310217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Mover.coverage" NAME="Mover Coverage Results" MODIFIED="1447352160881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
@@ -67,9 +67,12 @@
       <file leaf-file-name="Flocks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-              <folding />
+            <state vertical-scroll-proportion="0.33152175">
+              <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+              <folding>
+                <element signature="e#4381#5465#0" expanded="false" />
+                <element signature="e#9255#9537#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -556,12 +559,6 @@
       <option name="number" value="Default" />
       <updated>1444722393247</updated>
     </task>
-    <task id="LOCAL-00001" summary="Before testing the auto-checker for neighbours">
-      <created>1444743425761</created>
-      <option name="number" value="00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1444743425761</updated>
-    </task>
     <task id="LOCAL-00002" summary="Auto neighbour checker + uniform models">
       <created>1444746359642</created>
       <option name="number" value="00002" />
@@ -850,7 +847,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447370912027</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Herd compiles, doesn't run though">
+      <created>1447371935359</created>
+      <option name="number" value="00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1447371935385</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -891,7 +894,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="After fixing the model. It is SEIR without Mu or Nu" />
     <MESSAGE value="General Refactorings" />
     <MESSAGE value="Added SIS and SIR 2D models" />
     <MESSAGE value="After adding SIRS" />
@@ -916,7 +918,8 @@
     <MESSAGE value="Before adding multiple movers" />
     <MESSAGE value="Multiple movers towards the mouse work :)" />
     <MESSAGE value="After adding non tested Flock agent code" />
-    <option name="LAST_COMMIT_MESSAGE" value="After adding non tested Flock agent code" />
+    <MESSAGE value="Herd compiles, doesn't run though" />
+    <option name="LAST_COMMIT_MESSAGE" value="Herd compiles, doesn't run though" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1284,9 +1287,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
-          <folding />
+        <state vertical-scroll-proportion="0.33152175">
+          <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+          <folding>
+            <element signature="e#4381#5465#0" expanded="false" />
+            <element signature="e#9255#9537#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -147,12 +147,38 @@ class PVector:
 
 class Boid:
     def __init__(self, x, y):
-        self.Location = PVector(x, y)
-        self.Velocity = PVector(0, 0)
-        self.Acceleration = PVector(0, 0)
+        self.Location = PVector(random.randint(0, cellCountX), random.randint(0, cellCountY))#PVector(x, y)
+        self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)#PVector(0, 0)
+        self.Acceleration = PVector(-0.1, 1)#PVector(-0.01, 0.1)#PVector(0, 0)
         self.R = 3.0 # For size
         self.MaxForce = 4.0
-        self.MaxSpeed = 0.1
+        self.MaxSpeed = 20#0.1
+
+    def invertEdges(self):
+        if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
+            self.Velocity.X *= -1
+        if self.Location.Y <= 0 or self.Location.Y > cellCountY - 1:
+            self.Velocity.Y *= -1
+
+    def wrapEdges(self):
+        if self.Location.X <= 0:
+            self.Location.X = cellCountX
+        if self.Location.X > cellCountX - 1:
+            self.Location.X = 0
+        if self.Location.Y <= 0:
+            self.Location.Y = cellCountY
+        if self.Location.Y > cellCountY - 1:
+            self.Location.Y = 0
+
+    def checkEdges(self):
+        #self.invertEdges()
+        self.wrapEdges()
+
+    def update(self):
+        self.Velocity.add(self.Acceleration)
+        self.Velocity.limit(self.MaxSpeed)
+        self.Location.add(self.Velocity)
+        self.Acceleration.multiply(0.0001)
 
     def flock(self, inputBoids):
         separateVector = self.separate(inputBoids)
@@ -166,6 +192,8 @@ class Boid:
         self.applyForce(separateVector)
         self.applyForce(alignVector)
         self.applyForce(cohesionVector)
+        self.checkEdges()
+        self.update()
 
     def align(self, inputBoids):
         sum = PVector(0, 0)
@@ -224,12 +252,12 @@ class Boid:
 
     def seek(self, targetVector):
         desired = targetVector
-        desired.sub(self.Location)
+        desired.subtract(self.Location)
         desired.normalize()
         desired.multiply(self.MaxSpeed)
 
         steer = desired
-        desired.sub(self.Velocity)
+        desired.subtract(self.Velocity)
         self.applyForce(steer)
 
     def applyForce(self, inputForce):
