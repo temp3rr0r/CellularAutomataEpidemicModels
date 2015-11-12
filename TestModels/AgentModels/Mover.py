@@ -113,6 +113,10 @@ class PVector:
         self.Y /= inputNumber
     def magnitude(self):
         return np.sqrt(self.X * self.X + self.Y * self.Y)
+    def limit(self, max):
+        if self.magnitude() > max:
+            self.normalize()
+            self.multiply(max)
     def normalize(self):
         m = self.magnitude()
         if (m != 0):
@@ -121,7 +125,9 @@ class PVector:
 class Mover:
     def __init__(self):
         self.Location = PVector(int(random.randint(0, cellCountX)), int(random.randint(0, cellCountY)))
-        self.Velocity = PVector(random.uniform(-2, 2), random.uniform(-2, 2))
+        self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)
+        self.Acceleration = PVector(-0.01, 0.1)
+        self.TopSpeed = 50
         self.T = 0
 
     def update(self):
@@ -148,6 +154,14 @@ class Mover:
         self.wrapEdges()
 
     def walkVector(self):
+        self.T += 1
+
+        self.checkEdges()
+        self.Velocity.add(self.Acceleration)
+        self.Velocity.limit(self.TopSpeed)
+        self.Location.add(self.Velocity)
+
+    def walkVectorNormalize(self):
         self.T += 1
 
         self.checkEdges()
