@@ -53,7 +53,7 @@ class DrawHandler:
                     currentTimeStep += 1
 
                 currentColour = BLACK
-
+                
                 walker = MoverToMouse()
                 for i in timeRange:
                     event = pygame.event.poll()
