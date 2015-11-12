@@ -42,6 +42,7 @@ class DrawHandler:
 
         moverObjectCount = 20
         moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
+        flockList = Flock(3)
 
         while mainloop:
 
@@ -68,16 +69,17 @@ class DrawHandler:
 
                     screen.fill(WHITE) # Refresh screen
 
-                    for currentWalker in moverToMouseList:
-                        mousePointDirection = PVector(mouseX, mouseY)
-                        mousePointDirection.subtract(currentWalker.Location)
-                        mousePointDirection.normalize()
-                        mousePointDirection.multiply(2.5)
-
-                        tempMousePoint = PVector(mouseX, mouseY)
-                        tempMousePoint.subtract(currentWalker.Location)
-
-                        currentWalker.walkVectorAcceleration(mousePointDirection)
+                    flockList.run()
+                    # for currentWalker in moverToMouseList:
+                    #     mousePointDirection = PVector(mouseX, mouseY)
+                    #     mousePointDirection.subtract(currentWalker.Location)
+                    #     mousePointDirection.normalize()
+                    #     mousePointDirection.multiply(2.5)
+                    #
+                    #     tempMousePoint = PVector(mouseX, mouseY)
+                    #     tempMousePoint.subtract(currentWalker.Location)
+                    #
+                    #     currentWalker.walkVectorAcceleration(mousePointDirection)
 
 
                         # Draw point
@@ -91,13 +93,14 @@ class DrawHandler:
                         # pygame.draw.polygon(screen, currentColour, [a, b, c])
 
 
+                    for currentBoid in flockList.Boids:
                         # Draw circle
                         circleRadius = 15
                         circleThickness = 3
-                        pygame.draw.circle(screen, BLUE, (int(currentWalker.Location.X), int(currentWalker.Location.Y)), circleRadius, 0)
-                        pygame.draw.circle(screen, BLACK, (int(currentWalker.Location.X), int(currentWalker.Location.Y)), circleRadius, circleThickness)
+                        pygame.draw.circle(screen, BLUE, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, 0)
+                        pygame.draw.circle(screen, BLACK, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, circleThickness)
 
-                    pygame.display.set_caption("TimeStep %3i:  " % currentWalker.T)
+                    pygame.display.set_caption("TimeStep %3i:  " % flockList.T)
 
                     pygame.time.wait(delayAmount) # Delay the update of the walker
 
@@ -140,12 +143,12 @@ class PVector:
         if (m != 0):
             self.divide(m)
     def getDistance(self, otherLocation):
-        return np.Sqrt((self.X - otherLocation.X)** 2 + (self.Y - otherLocation.Y)**2)
+        return np.sqrt((self.X - otherLocation.X)** 2 + (self.Y - otherLocation.Y)**2)
 
 class Boid:
     def __init__(self, x, y):
         self.Location = PVector(x, y)
-        self.Velocity = 0
+        self.Velocity = PVector(0, 0)
         self.Acceleration = PVector(0, 0)
         self.R = 3.0 # For size
         self.MaxForce = 4.0
@@ -174,8 +177,10 @@ class Boid:
         sum.setMangitude(self.MaxSpeed)
 
         steer = PVector(sum.X, sum.Y)
-        steer.subtract(sum, self.Velocity)
+        steer.subtract(self.Velocity)
         steer.limit(self.MaxForce)
+
+        return steer
 
     def separate(self, inputBoids):
         desiredSeparation = self.R * 2
@@ -197,7 +202,9 @@ class Boid:
             steer = PVector(sum.X, sum.Y)
             steer.subtract(self.Velocity)
             steer.limit(self.MaxForce)
-            self.applyForce(steer)
+            return steer
+        else:
+            return PVector(0, 0)
 
     def cohesion(self, inputBoids):
         neighbourDistance = 50.0
@@ -228,32 +235,15 @@ class Boid:
     def applyForce(self, inputForce):
         self.Acceleration.add(inputForce)
 
-    def Run(self):
-        pass
-
 class Flock:
-    def __init__(self):
-        self.Boids = []
-        for i in range(100):
-            self.Boids.append(Boid())
+    def __init__(self, inputBoidCount):
+        self.BoidCount = inputBoidCount
+        self.Boids = [ Boid(10, 10) for i in range(self.BoidCount)]
+        self.T = 0
     def run(self):
+        self.T += 1
         for currentBoid in self.Boids:
-            currentBoid.Run()
-
-# Flock flock;
-# void setup() {
-#   size(300,200);
-#   flock = new Flock();
-#   for (int i = 0; i < 100; i++) {
-#     Boid b = new Boid(width/2,height/2);
-# The Flock starts out with 100 Boids.
-#    flock.addBoid(b);
-#   }
-# }
-# void draw() {
-#   background(255);
-#   flock.run();
-# }
+            currentBoid.flock(self.Boids)
 
 class MoverToMouse:
     def __init__(self):
