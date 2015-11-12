@@ -50,7 +50,7 @@ class DrawHandler:
                     currentTimeStep += 1
 
                 currentColour = BLACK
-                walker = VectorWalker()
+                walker = Mover()
                 for i in timeRange:
                     #walker.walk()
                     #walker.walkStep()
@@ -118,23 +118,39 @@ class PVector:
         if (m != 0):
             self.divide(m)
 
-class VectorWalker:
+class Mover:
     def __init__(self):
-        self.Location = PVector(int(cellCountX/2), int(cellCountY/2))
-        self.Velocity = PVector(25.0, 20.0)
+        self.Location = PVector(int(random.randint(0, cellCountX)), int(random.randint(0, cellCountY)))
+        self.Velocity = PVector(random.uniform(-2, 2), random.uniform(-2, 2))
         self.T = 0
-        #self.Universe = [[0 for x in range(cellCountX)] for x in range(cellCountY)]
 
     def update(self):
         self.Location.add(self.Velocity)
 
+    def invertEdges(self):
+        if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
+            self.Velocity.X *= -1
+        if self.Location.Y <= 0 or self.Location.Y > cellCountY - 1:
+            self.Velocity.Y *= -1
+
+    def wrapEdges(self):
+        if self.Location.X <= 0:
+            self.Location.X = cellCountX
+        if self.Location.X > cellCountX - 1:
+            self.Location.X = 0
+        if self.Location.Y <= 0:
+            self.Location.Y = cellCountY
+        if self.Location.Y > cellCountY - 1:
+            self.Location.Y = 0
+
+    def checkEdges(self):
+        #self.invertEdges()
+        self.wrapEdges()
+
     def walkVector(self):
         self.T += 1
 
-        if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
-            self.Velocity.X *= -1
-        if self.Location.Y < 0 or self.Location.Y > cellCountY - 1:
-            self.Velocity.Y *= -1
+        self.checkEdges()
 
         self.Velocity.normalize()
         self.Velocity.multiply(10)
