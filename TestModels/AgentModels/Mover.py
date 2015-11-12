@@ -36,6 +36,9 @@ class DrawHandler:
         interval = .15#.15 # how long one single images should be displayed in seconds
         delayAmount = 50
         currentTimeStep = 0
+        mouseX = 0
+        mouseY = 0
+        mousePoint = PVector(0, 0)  # Point of mouse vector
 
         while mainloop:
 
@@ -79,14 +82,28 @@ class DrawHandler:
 
                     pygame.display.set_caption("TimeStep %3i:  " % walker.T)
 
+                    event = pygame.event.poll()
+                    if event.type == pygame.QUIT:
+                        running = 0
+                    elif event.type == pygame.MOUSEMOTION:
+                        mouseX, mouseY = event.pos
+
+                    mousePoint = PVector(mouseX, mouseY)
+                    tempMousePoint = PVector(mouseX, mouseY)
+                    tempMousePoint.subtract(walker.Location)
+
+                    label4 = myfont.render("Magnitude from mouse: " + str(tempMousePoint.magnitude()), 1, RED)
+                    screen.blit(label4, (10, 35)) # Draw the text
+
                     center = PVector(cellCountX / 2, cellCountY / 2)
                     center.subtract(walker.Location)
                     label = myfont.render("Magnitude from Center: " + str(center.magnitude()), 1, RED)
                     label2 = myfont.render("Magnitude from 0,0: " + str(walker.Location.magnitude()), 1, RED)
                     label3 = myfont.render("Magnitude of Velocity: " + str(walker.Velocity.magnitude()), 1, RED)
-                    screen.blit(label, (10, 10)) # Draw the text
-                    screen.blit(label2, (10, 30)) # Draw the text
-                    screen.blit(label3, (10, 50)) # Draw the text
+                    screen.blit(label, (10, 5)) # Draw the text
+                    screen.blit(label2, (10, 15)) # Draw the text
+                    screen.blit(label3, (10, 25)) # Draw the text
+
                     pygame.time.wait(delayAmount) # Delay the update of the walker
 
                     pygame.display.flip()
@@ -111,6 +128,9 @@ class PVector:
     def divide(self, inputNumber):
         self.X /= inputNumber
         self.Y /= inputNumber
+    def random2D(self):
+        self.X = random.random()
+        self.Y = random.random()
     def magnitude(self):
         return np.sqrt(self.X * self.X + self.Y * self.Y)
     def limit(self, max):
@@ -124,7 +144,7 @@ class PVector:
 
 class Mover:
     def __init__(self):
-        self.Location = PVector(int(random.randint(0, cellCountX)), int(random.randint(0, cellCountY)))
+        self.Location = PVector(random.randint(0, cellCountX), random.randint(0, cellCountY))
         self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)
         self.Acceleration = PVector(-0.01, 0.1)
         self.TopSpeed = 50
@@ -154,6 +174,19 @@ class Mover:
         self.wrapEdges()
 
     def walkVector(self):
+        self.T += 1
+
+        self.checkEdges()
+
+        self.Acceleration.random2D()
+        accelerationFactor = random.uniform(-5, 5)
+        self.Acceleration.multiply(accelerationFactor)
+
+        self.Velocity.add(self.Acceleration)
+        self.Velocity.limit(self.TopSpeed)
+        self.Location.add(self.Velocity)
+
+    def walkAcceleratingVector(self):
         self.T += 1
 
         self.checkEdges()
