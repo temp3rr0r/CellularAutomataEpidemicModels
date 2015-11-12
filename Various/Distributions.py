@@ -23,8 +23,20 @@ s = []
 # BINOMIAL
 #s = (np.random.binomial(20, .5, 100) % 10) * 0.1
 
-print s
+# MONTE CARLO METHOD
+def monteCarlo():
+    r1 = 0.0
+    while(True):
+        # Pick a random value.
+        r1 = np.random.uniform()
+        if np.random.uniform() < r1:
+            return r1
 
+for i in range(10000):
+   s.append(monteCarlo())
+
+
+print s
 # Plot
 count, bins, ignored = plt.hist(s, 14, normed=True)
 plt.show()

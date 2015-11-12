@@ -2,6 +2,7 @@ import pygame
 import numpy as np
 import random
 
+
 class DrawHandler:
     def drawWalker(self):
         # Initialize the game engine
@@ -60,6 +61,7 @@ class DrawHandler:
                     #walker.walkStep()
                     #walker.walkStepRight()
                     walker.walkDistribution()
+
                     screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
                     pygame.display.set_caption("TimeStep %3i:  " % walker.T)
                     pygame.display.flip()
@@ -81,7 +83,7 @@ class Walker:
 
     def walkDistribution(self):
         self.T += 1
-        randomFloat = self.getRandomNumber(3)
+        randomFloat = self.getRandomNumber(4)
 
         stepX = 0
         stepY = 0
@@ -155,6 +157,14 @@ class Walker:
             if self.Y > 0:
                 self.Y = self.Y - 1
 
+    def monteCarlo(self):
+        r1 = 0.0
+        while(True):
+            # Pick a random value.
+            r1 = np.random.uniform()
+            if np.random.uniform() < r1:
+                return r1
+
     def getRandomNumber(self, distribution = 0):
         returningRandomNumber = 0.0
         if distribution == 0:
@@ -165,6 +175,9 @@ class Walker:
             returningRandomNumber = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
         elif distribution == 3:
             returningRandomNumber = np.random.poisson(2) * .1 # POISSON
+        elif distribution == 4:
+            returningRandomNumber = self.monteCarlo() # MONTE CARLO METHOD
+
         return returningRandomNumber
 
 timeStart = 0.0

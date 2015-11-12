@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Various/Distributions.py" afterPath="$PROJECT_DIR$/Various/Distributions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py" afterPath="$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -33,13 +34,13 @@
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSIR.coverage" NAME="GameOfLife2DSIR Coverage Results" MODIFIED="1444841817825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1446816653515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1446816705634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1445330266437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1447321591218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife1D.coverage" NAME="GameOfLife1D Coverage Results" MODIFIED="1445151431866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLatticeMoore.coverage" NAME="CoupledLatticeMoore Coverage Results" MODIFIED="1446749664093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1445001868593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRSImage.coverage" NAME="GameOfLife2DSIRSImage Coverage Results" MODIFIED="1445335342617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$DrawHexagon.coverage" NAME="DrawHexagon Coverage Results" MODIFIED="1445151027529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$RandomWalker.coverage" NAME="RandomWalker Coverage Results" MODIFIED="1447319569742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$RandomWalker.coverage" NAME="RandomWalker Coverage Results" MODIFIED="1447321840686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLattice.coverage" NAME="CoupledLattice Coverage Results" MODIFIED="1446749651107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSEIRSImage.coverage" NAME="GameOfLife2DSEIRSImage Coverage Results" MODIFIED="1446749318328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$DrawHexagon.coverage" NAME="DrawHexagon Coverage Results" MODIFIED="1445150337748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -59,31 +60,11 @@
       <file leaf-file-name="RandomWalker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83967394">
-              <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.6005435">
+              <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Distributions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Various/Distributions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameOfLife2DSISImage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WorkingModels/GameOfLife2DSISImage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="22" selection-end-column="32" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -113,7 +94,6 @@
         <option value="$PROJECT_DIR$/GameOfLife2DHex.py" />
         <option value="$PROJECT_DIR$/GameOfLife2D.py" />
         <option value="$PROJECT_DIR$/GameOfLife1D.py" />
-        <option value="$PROJECT_DIR$/Various/Distributions.py" />
         <option value="$PROJECT_DIR$/Utility.py" />
         <option value="$PROJECT_DIR$/Libraries/Utility.py" />
         <option value="$PROJECT_DIR$/Libraries/Draw2D.py" />
@@ -129,6 +109,7 @@
         <option value="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" />
         <option value="$PROJECT_DIR$/TestModels/AgentModels/VectorTest.py" />
         <option value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" />
+        <option value="$PROJECT_DIR$/Various/Distributions.py" />
         <option value="$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py" />
       </list>
     </option>
@@ -306,24 +287,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="CoupledLatticeMoore" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WorkingModels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CellularAutomataEpidemicModels" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/CoupledLatticeMoore.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="VectorTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -356,6 +319,24 @@
       <module name="CellularAutomataEpidemicModels" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Distributions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Various" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CellularAutomataEpidemicModels" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Various/Distributions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -551,17 +532,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.GameOfLife2DSIRImage" />
       <item index="1" class="java.lang.String" itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
-      <item index="2" class="java.lang.String" itemvalue="Python.CoupledLatticeMoore" />
-      <item index="3" class="java.lang.String" itemvalue="Python.VectorTest" />
-      <item index="4" class="java.lang.String" itemvalue="Python.RandomWalker" />
+      <item index="2" class="java.lang.String" itemvalue="Python.VectorTest" />
+      <item index="3" class="java.lang.String" itemvalue="Python.RandomWalker" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Distributions" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.RandomWalker" />
-        <item index="1" class="java.lang.String" itemvalue="Python.GameOfLife2DSIRImage" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
-        <item index="3" class="java.lang.String" itemvalue="Python.VectorTest" />
-        <item index="4" class="java.lang.String" itemvalue="Python.CoupledLatticeMoore" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Distributions" />
+        <item index="2" class="java.lang.String" itemvalue="Python.GameOfLife2DSIRImage" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
+        <item index="4" class="java.lang.String" itemvalue="Python.VectorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -798,7 +779,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447318654768</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Random distributions work">
+      <created>1447319614273</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1447319614273</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -839,7 +826,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed bug where numbers were being negative" />
     <MESSAGE value="After checking the histogram of poisson distribution" />
     <MESSAGE value="SIR 2D with immunity rates" />
     <MESSAGE value="Working animation SIR 2d" />
@@ -864,7 +850,8 @@
     <MESSAGE value="Speedups on 2D random walking agent drawing" />
     <MESSAGE value="Before updating the Step function of the random walker" />
     <MESSAGE value="Added random chance to move right" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added random chance to move right" />
+    <MESSAGE value="Random distributions work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random distributions work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,27 +860,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TestModels/GameOfLife2DSIR.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestModels/GameOfLife2DHex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="10" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Various/Distributions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1200,7 +1166,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="234" column="12" selection-start-line="234" selection-start-column="12" selection-end-line="234" selection-end-column="12" />
           <folding>
-            <element signature="e#58#71#0" expanded="true" />
+            <element signature="e#58#71#0" expanded="false" />
             <element signature="e#244#666#0" expanded="false" />
             <element signature="e#748#944#0" expanded="false" />
             <element signature="e#1027#2193#0" expanded="false" />
@@ -1217,16 +1183,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
           <folding>
-            <element signature="e#1673#1702#0" expanded="true" />
+            <element signature="e#1673#1702#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Various/Distributions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="20" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,10 +1196,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Anaconda/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33152175">
+          <caret line="5677" column="0" selection-start-line="5677" selection-start-column="0" selection-end-line="5677" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda/Lib/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33152175">
+          <caret line="2895" column="0" selection-start-line="2895" selection-start-column="0" selection-end-line="2895" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda/Lib/site-packages/numpy/lib/function_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33152175">
+          <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Various/Distributions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="32" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/RandomWalker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83967394">
-          <caret line="83" column="44" selection-start-line="83" selection-start-column="44" selection-end-line="83" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.6005435">
+          <caret line="85" column="44" selection-start-line="85" selection-start-column="44" selection-end-line="85" selection-end-column="44" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
