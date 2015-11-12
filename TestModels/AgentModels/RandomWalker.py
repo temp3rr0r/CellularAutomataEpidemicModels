@@ -1,7 +1,7 @@
 import pygame
 import numpy as np
 import random
-
+from noise import pnoise1
 
 class DrawHandler:
     def drawWalker(self):
@@ -27,12 +27,8 @@ class DrawHandler:
 
         #Loop until the user clicks the close button.
         clock = pygame.time.Clock()
-
-
         myfont = pygame.font.SysFont("monospace", 15)
 
-
-        #while 1:
         # Make sure game doesn't run at more than 60 frames per second
         mainloop = True
         maxFPS = 60 # desired max. framerate in frames per second.
@@ -53,16 +49,34 @@ class DrawHandler:
                 else:
                     currentTimeStep += 1
 
-
                 currentColour = BLACK
                 walker = Walker()
                 for i in timeRange:
                     #walker.walk()
                     #walker.walkStep()
                     #walker.walkStepRight()
-                    walker.walkDistribution()
+                    #walker.walkDistribution()
+                    walker.walkPerlinNoise()
 
-                    screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
+                    screen.fill(WHITE) # Refresh screen
+
+                    # Draw point
+                    #screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
+
+                    # Draw triangle
+                    # triangleSide = 10 # pixels
+                    # a = [walker.X, walker.Y - (triangleSide /2 )]
+                    # b = [walker.X + (triangleSide /2 ), walker.Y + (triangleSide /2 )]
+                    # c = [walker.X - (triangleSide /2 ), walker.Y + (triangleSide /2 )]
+                    # pygame.draw.polygon(screen, currentColour, [a, b, c])
+
+                    # Draw circle
+                    circleRadius = 15
+                    circleThickness = 3
+                    pygame.draw.circle(screen, BLUE, (walker.X, walker.Y), circleRadius, 0)
+                    pygame.draw.circle(screen, BLACK, (walker.X, walker.Y), circleRadius, circleThickness)
+
+
                     pygame.display.set_caption("TimeStep %3i:  " % walker.T)
                     pygame.display.flip()
 
@@ -80,6 +94,17 @@ class Walker:
         self.Y = int(cellCountY/2)
         self.T = 0
         #self.Universe = [[0 for x in range(cellCountX)] for x in range(cellCountY)]
+
+    def walkPerlinNoise(self):
+        self.T += 1
+
+        stepX = int(self.perlinNoiseNumber(self.T, timeEnd) * 7)
+        stepY = int(self.perlinNoiseNumber(abs(timeEnd - self.T), timeEnd) * 12)
+
+        newX = self.X + stepX
+        newY = self.Y + stepY
+        self.updateLocation(newX, newY)
+
 
     def walkDistribution(self):
         self.T += 1
@@ -165,6 +190,13 @@ class Walker:
             if np.random.uniform() < r1:
                 return r1
 
+    # PERLIN NOISE 1 to -1
+    def perlinNoiseNumber(self, timeStep, maxTimeStep, octaves = 10, timeSpan = 300):
+        base = 0.5
+        x = float(timeStep) * timeSpan / maxTimeStep - 0.5 * timeSpan
+        y = pnoise1(x + base, octaves)
+        return y
+
     def getRandomNumber(self, distribution = 0):
         returningRandomNumber = 0.0
         if distribution == 0:
@@ -177,7 +209,6 @@ class Walker:
             returningRandomNumber = np.random.poisson(2) * .1 # POISSON
         elif distribution == 4:
             returningRandomNumber = self.monteCarlo() # MONTE CARLO METHOD
-
         return returningRandomNumber
 
 timeStart = 0.0
