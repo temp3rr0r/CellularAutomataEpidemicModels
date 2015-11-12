@@ -1,6 +1,6 @@
 import pygame
 import numpy as np
-from random import randint
+import random
 
 class DrawHandler:
     def drawWalker(self):
@@ -56,7 +56,9 @@ class DrawHandler:
                 currentColour = BLACK
                 walker = Walker()
                 for i in timeRange:
-                    walker.walk()
+                    #walker.walk()
+                    #walker.walkStep()
+                    walker.walkStepRight()
                     screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
                     pygame.display.set_caption("TimeStep %3i:  " % walker.T)
                     pygame.display.flip()
@@ -75,18 +77,38 @@ class Walker:
         self.Y = int(cellCountY/2)
         self.T = 0
         #self.Universe = [[0 for x in range(cellCountX)] for x in range(cellCountY)]
-    def walkStep(self):
+    def walkStepRight(self):
         self.T += 1
-        stepX = randint(-1,1)
-        stepY = randint(-1,1)
+        randomFloat = random.random()
 
+        stepX = 0
+        stepY = 0
+
+        if randomFloat < 0.4:
+            stepX = 1
+        elif randomFloat < 0.6:
+            stepX = -1
+        elif randomFloat < 0.8:
+            stepY = 1
+        else:
+            stepY = -1
         newX = self.X + stepX
         newY = self.Y + stepY
+        self.updateLocation(newX, newY)
 
+    def updateLocation(self, newX, newY):
         if newX >= 0 and newX < cellCountX - 1:
             self.X = newX
         if newY >= 0 and newY < cellCountY - 1:
             self.Y = newY
+
+    def walkStep(self):
+        self.T += 1
+        stepX = random.randint(-1,1)
+        stepY = random.randint(-1,1)
+        newX = self.X + stepX
+        newY = self.Y + stepY
+        self.updateLocation(newX, newY)
 
     def walk(self):
         self.T += 1
