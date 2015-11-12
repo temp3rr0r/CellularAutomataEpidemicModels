@@ -58,7 +58,8 @@ class DrawHandler:
                 for i in timeRange:
                     #walker.walk()
                     #walker.walkStep()
-                    walker.walkStepRight()
+                    #walker.walkStepRight()
+                    walker.walkDistribution()
                     screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
                     pygame.display.set_caption("TimeStep %3i:  " % walker.T)
                     pygame.display.flip()
@@ -77,6 +78,33 @@ class Walker:
         self.Y = int(cellCountY/2)
         self.T = 0
         #self.Universe = [[0 for x in range(cellCountX)] for x in range(cellCountY)]
+
+    def walkDistribution(self):
+        self.T += 1
+        randomFloat = self.getRandomNumber(3)
+
+        stepX = 0
+        stepY = 0
+
+        if randomFloat < 0.25:
+            stepX = 1
+        elif randomFloat < 0.5:
+            stepX = -1
+        elif randomFloat < 0.75:
+            stepY = -1
+        else:
+            stepY = 1
+
+        newX = self.X + stepX
+        newY = self.Y + stepY
+        self.updateLocation(newX, newY)
+
+    def updateLocation(self, newX, newY):
+        if newX >= 0 and newX < cellCountX - 1:
+            self.X = newX
+        if newY >= 0 and newY < cellCountY - 1:
+            self.Y = newY
+
     def walkStepRight(self):
         self.T += 1
         randomFloat = random.random()
@@ -126,6 +154,18 @@ class Walker:
         elif randChoice == 3:
             if self.Y > 0:
                 self.Y = self.Y - 1
+
+    def getRandomNumber(self, distribution = 0):
+        returningRandomNumber = 0.0
+        if distribution == 0:
+            returningRandomNumber = np.random.uniform() # UNIFORM
+        elif distribution == 1:
+            returningRandomNumber = np.random.normal(.5, .1) # NORMAL
+        elif distribution == 2:
+            returningRandomNumber = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
+        elif distribution == 3:
+            returningRandomNumber = np.random.poisson(2) * .1 # POISSON
+        return returningRandomNumber
 
 timeStart = 0.0
 timeEnd = 5000
