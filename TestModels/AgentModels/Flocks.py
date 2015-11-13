@@ -42,7 +42,7 @@ class DrawHandler:
 
         moverObjectCount = 20
         moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
-        flockList = Flock(50)
+        flockList = Flock(80)
 
         while mainloop:
 
@@ -146,13 +146,13 @@ class PVector:
 
 class Boid:
     def __init__(self, x, y):
-        self.Location = PVector(random.randint(0, cellCountX / 4), random.randint(0, cellCountY / 4))#PVector(x, y)
+        self.Location = PVector(cellCountX / 2, cellCountY / 2)#PVector(x, y)
         self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)#PVector(0, 0)
         self.Acceleration = PVector(-0.1, 1)#PVector(-0.01, 0.1)#PVector(0, 0)
-        self.R = 0.4#1.0 # For size
-        self.MaxForce = 0.1
+        self.R = 3#1.0 # For size
+        self.MaxForce = 0.2
         self.MaxSpeed = 3#0.1
-        self.NeighbourDistance = 1.1
+        self.NeighbourDistance = 1.2
 
     def invertEdges(self):
         if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
@@ -187,7 +187,7 @@ class Boid:
 
         separateVector.multiply(1.5)
         alignVector.multiply(1)
-        cohesionVector.multiply(3)
+        cohesionVector.multiply(1)
 
         self.applyForce(separateVector)
         self.applyForce(alignVector)
