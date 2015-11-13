@@ -42,7 +42,7 @@ class DrawHandler:
 
         moverObjectCount = 20
         moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
-        flockList = Flock(3)
+        flockList = Flock(30)
 
         while mainloop:
 
@@ -81,22 +81,21 @@ class DrawHandler:
                     #
                     #     currentWalker.walkVectorAcceleration(mousePointDirection)
 
+                    for currentBoid in flockList.Boids:
 
                         # Draw point
                         #screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
 
                         # Draw triangle
-                        # triangleSide = 10 # pixels
-                        # a = [walker.X, walker.Y - (triangleSide /2 )]
-                        # b = [walker.X + (triangleSide /2 ), walker.Y + (triangleSide /2 )]
-                        # c = [walker.X - (triangleSide /2 ), walker.Y + (triangleSide /2 )]
-                        # pygame.draw.polygon(screen, currentColour, [a, b, c])
-
-
-                    for currentBoid in flockList.Boids:
+                        # triangleSide = 8 # pixels
+                        # a = [int(currentBoid.Location.X), int(currentBoid.Location.Y) - (triangleSide)]
+                        # b = [int(currentBoid.Location.X) + (triangleSide /2 ), int(currentBoid.Location.Y) + (triangleSide /2 )]
+                        # c = [int(currentBoid.Location.X) - (triangleSide /2 ), int(currentBoid.Location.Y) + (triangleSide /2 )]
+                        # pygame.draw.polygon(screen, BLUE, [a, b, c])
+                        # pygame.draw.polygon(screen, BLACK, [a, b, c], 1)
                         # Draw circle
-                        circleRadius = 15
-                        circleThickness = 3
+                        circleRadius = 5
+                        circleThickness = 1
                         pygame.draw.circle(screen, BLUE, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, 0)
                         pygame.draw.circle(screen, BLACK, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, circleThickness)
 
@@ -150,9 +149,9 @@ class Boid:
         self.Location = PVector(random.randint(0, cellCountX), random.randint(0, cellCountY))#PVector(x, y)
         self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)#PVector(0, 0)
         self.Acceleration = PVector(-0.1, 1)#PVector(-0.01, 0.1)#PVector(0, 0)
-        self.R = 3.0 # For size
+        self.R = 0.8#1.0 # For size
         self.MaxForce = 4.0
-        self.MaxSpeed = 20#0.1
+        self.MaxSpeed = 10#0.1
 
     def invertEdges(self):
         if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
@@ -235,7 +234,7 @@ class Boid:
             return PVector(0, 0)
 
     def cohesion(self, inputBoids):
-        neighbourDistance = 50.0
+        neighbourDistance = 5.0
         sum = PVector(0, 0)
         count = 0
         for currentBoid in inputBoids:
@@ -258,7 +257,7 @@ class Boid:
 
         steer = desired
         desired.subtract(self.Velocity)
-        self.applyForce(steer)
+        return desired
 
     def applyForce(self, inputForce):
         self.Acceleration.add(inputForce)

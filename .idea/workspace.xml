@@ -33,7 +33,7 @@
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446811377689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1444836494553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1444838613913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447372666580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447373731317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1445589404930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$MoverToMouse.coverage" NAME="MoverToMouse Coverage Results" MODIFIED="1447353310217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Mover.coverage" NAME="Mover Coverage Results" MODIFIED="1447352160881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
@@ -67,11 +67,12 @@
       <file leaf-file-name="Flocks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33152175">
-              <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.9076087">
+              <caret line="253" column="38" selection-start-line="253" selection-start-column="38" selection-end-line="253" selection-end-column="38" />
               <folding>
-                <element signature="e#4381#5465#0" expanded="false" />
-                <element signature="e#9255#9537#0" expanded="false" />
+                <element signature="e#4554#5638#0" expanded="false" />
+                <element signature="e#7757#8565#0" expanded="false" />
+                <element signature="e#9731#11740#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -559,12 +560,6 @@
       <option name="number" value="Default" />
       <updated>1444722393247</updated>
     </task>
-    <task id="LOCAL-00002" summary="Auto neighbour checker + uniform models">
-      <created>1444746359642</created>
-      <option name="number" value="00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1444746359642</updated>
-    </task>
     <task id="LOCAL-00003" summary="After fixing the rate ranges">
       <created>1444756288970</created>
       <option name="number" value="00003" />
@@ -853,7 +848,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447371935385</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Runs but  not as expected">
+      <created>1447372702374</created>
+      <option name="number" value="00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1447372702374</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -868,7 +869,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33557048" sideWeight="0.4921875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13691376" sideWeight="0.6818182" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13691376" sideWeight="0.6818182" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13691376" sideWeight="0.3181818" order="2" side_tool="true" content_ui="tabs" />
@@ -894,7 +895,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="General Refactorings" />
     <MESSAGE value="Added SIS and SIR 2D models" />
     <MESSAGE value="After adding SIRS" />
     <MESSAGE value="After addign SEIS model" />
@@ -919,7 +919,8 @@
     <MESSAGE value="Multiple movers towards the mouse work :)" />
     <MESSAGE value="After adding non tested Flock agent code" />
     <MESSAGE value="Herd compiles, doesn't run though" />
-    <option name="LAST_COMMIT_MESSAGE" value="Herd compiles, doesn't run though" />
+    <MESSAGE value="Runs but  not as expected" />
+    <option name="LAST_COMMIT_MESSAGE" value="Runs but  not as expected" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,11 +1288,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33152175">
-          <caret line="189" column="32" selection-start-line="189" selection-start-column="32" selection-end-line="189" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.9076087">
+          <caret line="253" column="38" selection-start-line="253" selection-start-column="38" selection-end-line="253" selection-end-column="38" />
           <folding>
-            <element signature="e#4381#5465#0" expanded="false" />
-            <element signature="e#9255#9537#0" expanded="false" />
+            <element signature="e#4554#5638#0" expanded="false" />
+            <element signature="e#7757#8565#0" expanded="false" />
+            <element signature="e#9731#11740#0" expanded="false" />
           </folding>
         </state>
       </provider>
