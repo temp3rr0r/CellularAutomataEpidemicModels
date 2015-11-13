@@ -42,7 +42,7 @@ class DrawHandler:
 
         moverObjectCount = 20
         moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
-        flockList = Flock(30)
+        flockList = Flock(50)
 
         while mainloop:
 
@@ -146,12 +146,13 @@ class PVector:
 
 class Boid:
     def __init__(self, x, y):
-        self.Location = PVector(random.randint(0, cellCountX), random.randint(0, cellCountY))#PVector(x, y)
+        self.Location = PVector(random.randint(0, cellCountX / 4), random.randint(0, cellCountY / 4))#PVector(x, y)
         self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)#PVector(0, 0)
         self.Acceleration = PVector(-0.1, 1)#PVector(-0.01, 0.1)#PVector(0, 0)
-        self.R = 0.8#1.0 # For size
-        self.MaxForce = 4.0
-        self.MaxSpeed = 10#0.1
+        self.R = 0.4#1.0 # For size
+        self.MaxForce = 0.1
+        self.MaxSpeed = 3#0.1
+        self.NeighbourDistance = 1.1
 
     def invertEdges(self):
         if self.Location.X <= 0 or self.Location.X > cellCountX - 1:
@@ -177,7 +178,7 @@ class Boid:
         self.Velocity.add(self.Acceleration)
         self.Velocity.limit(self.MaxSpeed)
         self.Location.add(self.Velocity)
-        self.Acceleration.multiply(0.0001)
+        self.Acceleration.multiply(0.0)
 
     def flock(self, inputBoids):
         separateVector = self.separate(inputBoids)
@@ -185,8 +186,8 @@ class Boid:
         cohesionVector = self.cohesion(inputBoids)
 
         separateVector.multiply(1.5)
-        alignVector.multiply(1.0)
-        cohesionVector.multiply(1.0)
+        alignVector.multiply(1)
+        cohesionVector.multiply(3)
 
         self.applyForce(separateVector)
         self.applyForce(alignVector)
@@ -234,12 +235,11 @@ class Boid:
             return PVector(0, 0)
 
     def cohesion(self, inputBoids):
-        neighbourDistance = 5.0
         sum = PVector(0, 0)
         count = 0
         for currentBoid in inputBoids:
             distance = self.Location.getDistance(currentBoid.Location)
-            if (distance > 0 and distance < neighbourDistance):
+            if (distance > 0 and distance < self.NeighbourDistance):
                 sum.add(currentBoid.Location)
                 count += 1
 
