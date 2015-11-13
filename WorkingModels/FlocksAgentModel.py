@@ -171,8 +171,8 @@ class Boid:
             self.Location.Y = 0
 
     def checkEdges(self):
-        #self.invertEdges()
-        self.wrapEdges()
+        self.invertEdges()
+        #self.wrapEdges()
 
     def update(self):
         self.Velocity.add(self.Acceleration)
@@ -350,8 +350,8 @@ timeStep = 1
 timeRange = np.arange(timeStart, timeEnd + timeStart, timeStep)
 timeStart = 0
 simulationIterations = int(timeStart + timeEnd)
-cellCountX = 400
-cellCountY = 400
+cellCountX = 1000
+cellCountY = 1000
 
 universeDrawHandler = DrawHandler()
 universeDrawHandler.drawWalker()

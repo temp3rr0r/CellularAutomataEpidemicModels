@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" afterPath="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -29,11 +30,12 @@
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1446749438116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1444743916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSEIRImage.coverage" NAME="GameOfLife2DSEIRImage Coverage Results" MODIFIED="1445148363860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$FlocksAgentModel.coverage" NAME="FlocksAgentModel Coverage Results" MODIFIED="1447377444735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage__1_.coverage" NAME="GameOfLife2DSIRImage (1) Coverage Results" MODIFIED="1445335245409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446811377689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1444836494553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1444838613913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447376672723" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Flocks.coverage" NAME="Flocks Coverage Results" MODIFIED="1447377364197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1445589404930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$MoverToMouse.coverage" NAME="MoverToMouse Coverage Results" MODIFIED="1447353310217" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Mover.coverage" NAME="Mover Coverage Results" MODIFIED="1447352160881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
@@ -64,15 +66,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Flocks.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
+      <file leaf-file-name="FlocksAgentModel.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5081522">
-              <caret line="152" column="27" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.36956522">
+              <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
               <folding>
+                <element signature="e#97#4533#0" expanded="false" />
                 <element signature="e#4554#5638#0" expanded="false" />
-                <element signature="e#9393#9675#0" expanded="false" />
-                <element signature="e#9701#11710#0" expanded="false" />
+                <element signature="e#9391#9673#0" expanded="false" />
+                <element signature="e#9699#11708#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -125,6 +128,7 @@
         <option value="$PROJECT_DIR$/TestModels/AgentModels/MoverToMouse.py" />
         <option value="$PROJECT_DIR$/TestModels/AgentModels/MultiMoverToMouse.py" />
         <option value="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" />
+        <option value="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" />
       </list>
     </option>
   </component>
@@ -192,39 +196,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="WorkingModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CellularAutomataEpidemicModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleSIRNoBirthsNoDeaths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Various" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CellularAutomataEpidemicModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimpleSIRNoBirthsNoDeaths" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CellularAutomataEpidemicModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SimpleSIRNoBirthsNoDeaths" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TestModels" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AgentModels" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,6 +230,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\madks_000\PycharmProjects\SimpleSIRNoBirthsNoDeaths\WorkingModels" />
       <recent name="C:\Users\madks_000\PycharmProjects\SimpleSIRNoBirthsNoDeaths\TestModels\AgentModels" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -253,25 +240,7 @@
       <recent name="C:\Users\madks_000\PycharmProjects\SimpleSIRNoBirthsNoDeaths\Various" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Flocks">
-    <configuration default="false" name="VectorWalker" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestModels/AgentModels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="CellularAutomataEpidemicModels" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestModels/AgentModels/VectorWalker.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.FlocksAgentModel">
     <configuration default="false" name="Mover" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,6 +309,24 @@
       <module name="CellularAutomataEpidemicModels" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="FlocksAgentModel" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WorkingModels" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CellularAutomataEpidemicModels" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -533,19 +520,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.VectorWalker" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Mover" />
-      <item index="2" class="java.lang.String" itemvalue="Python.MoverToMouse" />
-      <item index="3" class="java.lang.String" itemvalue="Python.MultiMoverToMouse" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Flocks" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Mover" />
+      <item index="1" class="java.lang.String" itemvalue="Python.MoverToMouse" />
+      <item index="2" class="java.lang.String" itemvalue="Python.MultiMoverToMouse" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Flocks" />
+      <item index="4" class="java.lang.String" itemvalue="Python.FlocksAgentModel" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.Flocks" />
-        <item index="1" class="java.lang.String" itemvalue="Python.MultiMoverToMouse" />
-        <item index="2" class="java.lang.String" itemvalue="Python.MoverToMouse" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Mover" />
-        <item index="4" class="java.lang.String" itemvalue="Python.VectorWalker" />
+        <item index="0" class="java.lang.String" itemvalue="Python.FlocksAgentModel" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Flocks" />
+        <item index="2" class="java.lang.String" itemvalue="Python.MultiMoverToMouse" />
+        <item index="3" class="java.lang.String" itemvalue="Python.MoverToMouse" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Mover" />
       </list>
     </recent_temporary>
   </component>
@@ -559,12 +546,6 @@
       <created>1444722393247</created>
       <option name="number" value="Default" />
       <updated>1444722393247</updated>
-    </task>
-    <task id="LOCAL-00005" summary="First version of Game Of Life SIS 2D working">
-      <created>1444812159839</created>
-      <option name="number" value="00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1444812159840</updated>
     </task>
     <task id="LOCAL-00006" summary="Before changing the SIS 2D neighborhood">
       <created>1444813780212</created>
@@ -854,7 +835,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447375633631</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Good settings for 100 count herd">
+      <created>1447376710539</created>
+      <option name="number" value="00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1447376710539</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -895,7 +882,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="After addign SEIS model" />
     <MESSAGE value="After checking all the different distributions on the &quot;Distributions&quot; script. All distributions should be correct now and return values inside (0,1) / Greater than 0, less than 1" />
     <MESSAGE value="After fixing SEIRS and SIRS distributions" />
     <MESSAGE value="After fixing SIS and SEIS distributions" />
@@ -920,7 +906,8 @@
     <MESSAGE value="Runs but  not as expected" />
     <MESSAGE value="A flock runs" />
     <MESSAGE value="After some setttings. Before starting the flock from a point" />
-    <option name="LAST_COMMIT_MESSAGE" value="After some setttings. Before starting the flock from a point" />
+    <MESSAGE value="Good settings for 100 count herd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Good settings for 100 count herd" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -929,13 +916,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="49" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TestModels/GameOfLife1D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1288,12 +1268,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/Flocks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5081522">
-          <caret line="152" column="27" selection-start-line="152" selection-start-column="27" selection-end-line="152" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
           <folding>
             <element signature="e#4554#5638#0" expanded="false" />
-            <element signature="e#9393#9675#0" expanded="false" />
-            <element signature="e#9701#11710#0" expanded="false" />
+            <element signature="e#9391#9673#0" expanded="false" />
+            <element signature="e#9699#11708#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36956522">
+          <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+          <folding>
+            <element signature="e#97#4533#0" expanded="false" />
+            <element signature="e#4554#5638#0" expanded="false" />
+            <element signature="e#9391#9673#0" expanded="false" />
+            <element signature="e#9699#11708#0" expanded="false" />
           </folding>
         </state>
       </provider>
