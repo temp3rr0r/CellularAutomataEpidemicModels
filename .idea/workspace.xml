@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" afterPath="$PROJECT_DIR$/TestModels/AgentModels/Flocks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" afterPath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SimpleSIRNoBirthsNoDeaths.iws" />
@@ -30,7 +29,7 @@
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1446749438116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1444743916924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$GameOfLife2DSEIRImage.coverage" NAME="GameOfLife2DSEIRImage Coverage Results" MODIFIED="1445148363860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$FlocksAgentModel.coverage" NAME="FlocksAgentModel Coverage Results" MODIFIED="1447377444735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$FlocksAgentModel.coverage" NAME="FlocksAgentModel Coverage Results" MODIFIED="1447417150682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage__1_.coverage" NAME="GameOfLife2DSIRImage (1) Coverage Results" MODIFIED="1445335245409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$VectorTest.coverage" NAME="VectorTest Coverage Results" MODIFIED="1446811377689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels/AgentModels" />
     <SUITE FILE_PATH="coverage/SimpleSIRNoBirthsNoDeaths$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1444836494553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -69,14 +68,24 @@
       <file leaf-file-name="FlocksAgentModel.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36956522">
-              <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.18478261">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding>
-                <element signature="e#97#4533#0" expanded="false" />
-                <element signature="e#4554#5638#0" expanded="false" />
-                <element signature="e#9391#9673#0" expanded="false" />
-                <element signature="e#9699#11708#0" expanded="false" />
+                <element signature="e#4752#5836#0" expanded="false" />
+                <element signature="e#5854#9570#0" expanded="false" />
+                <element signature="e#9589#9871#0" expanded="false" />
+                <element signature="e#9897#11906#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MoverToMouse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/MoverToMouse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="29" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,6 +177,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -210,14 +220,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Various" />
+              <option name="myItemId" value="TestModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CellularAutomataEpidemicModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SimpleSIRNoBirthsNoDeaths" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TestModels" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AgentModels" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -547,12 +574,6 @@
       <option name="number" value="Default" />
       <updated>1444722393247</updated>
     </task>
-    <task id="LOCAL-00006" summary="Before changing the SIS 2D neighborhood">
-      <created>1444813780212</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1444813780212</updated>
-    </task>
     <task id="LOCAL-00007" summary="Working SIS 2D GoL">
       <created>1444817623801</created>
       <option name="number" value="00007" />
@@ -841,27 +862,33 @@
       <option name="project" value="LOCAL" />
       <updated>1447376710539</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance">
+      <created>1447377546810</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1447377546810</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13918306" sideWeight="0.67171717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3007752" sideWeight="0.5078125" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929516" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33557048" sideWeight="0.4921875" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13691376" sideWeight="0.6818182" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13691376" sideWeight="0.3181818" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13918306" sideWeight="0.32828283" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990461" sideWeight="0.49703264" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -882,7 +909,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="After checking all the different distributions on the &quot;Distributions&quot; script. All distributions should be correct now and return values inside (0,1) / Greater than 0, less than 1" />
     <MESSAGE value="After fixing SEIRS and SIRS distributions" />
     <MESSAGE value="After fixing SIS and SEIS distributions" />
     <MESSAGE value="After adding the models:&#10;- Coupled lattice 2D with Von Neumann neighborhood&#10;- Coupled lattice 2D with Moore neighborhood&#10;- ForestFire 2D CA&#10;- Numerical SIR with Births and Deaths" />
@@ -907,7 +933,8 @@
     <MESSAGE value="A flock runs" />
     <MESSAGE value="After some setttings. Before starting the flock from a point" />
     <MESSAGE value="Good settings for 100 count herd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Good settings for 100 count herd" />
+    <MESSAGE value="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance" />
+    <option name="LAST_COMMIT_MESSAGE" value="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1228,9 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="127" column="21" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#13#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,7 +1270,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,15 +1277,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/MoverToMouse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8965516">
-          <caret line="143" column="20" selection-start-line="143" selection-start-column="18" selection-end-line="143" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1270,23 +1284,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="79" column="26" selection-start-line="79" selection-start-column="26" selection-end-line="79" selection-end-column="26" />
-          <folding>
-            <element signature="e#4554#5638#0" expanded="false" />
-            <element signature="e#9391#9673#0" expanded="false" />
-            <element signature="e#9699#11708#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestModels/AgentModels/MoverToMouse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="29" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36956522">
-          <caret line="169" column="44" selection-start-line="169" selection-start-column="44" selection-end-line="169" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.18478261">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
           <folding>
-            <element signature="e#97#4533#0" expanded="false" />
-            <element signature="e#4554#5638#0" expanded="false" />
-            <element signature="e#9391#9673#0" expanded="false" />
-            <element signature="e#9699#11708#0" expanded="false" />
+            <element signature="e#4752#5836#0" expanded="false" />
+            <element signature="e#5854#9570#0" expanded="false" />
+            <element signature="e#9589#9871#0" expanded="false" />
+            <element signature="e#9897#11906#0" expanded="false" />
           </folding>
         </state>
       </provider>

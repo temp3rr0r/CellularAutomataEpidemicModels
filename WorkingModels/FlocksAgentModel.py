@@ -27,14 +27,14 @@ class DrawHandler:
 
         #Loop until the user clicks the close button.
         clock = pygame.time.Clock()
-        myfont = pygame.font.SysFont("monospace", 15)
+        myfont = pygame.font.SysFont("monospace", 18)
 
         # Make sure game doesn't run at more than 60 frames per second
         mainloop = True
         maxFPS = 60 # desired max. framerate in frames per second.
         cycletime = 0
         interval = .15#.15 # how long one single images should be displayed in seconds
-        delayAmount = 50
+        delayAmount = 500
         currentTimeStep = 0
         mouseX = 0
         mouseY = 0
@@ -42,7 +42,8 @@ class DrawHandler:
 
         moverObjectCount = 20
         moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
-        flockList = Flock(30)
+        flockSize = 60
+        flockList = Flock(flockSize)
 
         while mainloop:
 
@@ -98,6 +99,9 @@ class DrawHandler:
                         circleThickness = 1
                         pygame.draw.circle(screen, BLUE, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, 0)
                         pygame.draw.circle(screen, BLACK, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, circleThickness)
+
+                        label = myfont.render("Flock Size: " + str(len(flockList.Boids)), 1, RED)
+                        screen.blit(label, (10, 5)) # Draw the text
 
                     pygame.display.set_caption("TimeStep %3i:  " % flockList.T)
 
@@ -350,8 +354,8 @@ timeStep = 1
 timeRange = np.arange(timeStart, timeEnd + timeStart, timeStep)
 timeStart = 0
 simulationIterations = int(timeStart + timeEnd)
-cellCountX = 1000
-cellCountY = 1000
+cellCountX = 800
+cellCountY = 600
 
 universeDrawHandler = DrawHandler()
 universeDrawHandler.drawWalker()
