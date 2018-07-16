@@ -1,4 +1,4 @@
-# README #
+# Cellular Automata Epidemic Models #
 
 These scripts are a "quick-to-test" precursor to the EpidemicSimulator project.
 The most interesting source is inside the "WorkingModels" directory which contains models that work.
