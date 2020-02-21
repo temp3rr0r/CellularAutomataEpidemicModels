@@ -6,24 +6,25 @@ from noise import pnoise1
 
 s = []
 
-#sigmaChance = np.random.uniform() # UNIFORM
-#sigmaChance = np.random.normal(.5, .1) # NORMAL
-#sigmaChance = np.random.poisson(2) * .1 # POISSON
-#sigmaChance = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
+
+# sigmaChance = np.random.uniform() # UNIFORM
+# sigmaChance = np.random.normal(.5, .1) # NORMAL
+# sigmaChance = np.random.poisson(2) * .1 # POISSON
+# sigmaChance = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
 
 # UNIFORM
-#for i in range(1000):
+# for i in range(1000):
 #    s.append(np.random.uniform())
 
 # POISSON
-#s = np.random.poisson(2, 10000) * 0.1
+# s = np.random.poisson(2, 10000) * 0.1
 
 # NORMAL
-#for i in range(10000):
+# for i in range(10000):
 #    s = abs(np.random.normal(.5, .1, 1000)) # NORMAL
 
 # BINOMIAL
-#s = (np.random.binomial(20, .5, 100) % 10) * 0.1
+# s = (np.random.binomial(20, .5, 100) % 10) * 0.1
 
 # MONTE CARLO METHOD
 # def monteCarlo():
@@ -37,18 +38,19 @@ s = []
 #    s.append(monteCarlo())
 
 # PERLIN NOISE 1 to -1
-def perlinNoiseNumber(maxTimeStep, timeStep, octaves = 1, timeSpan = 30):
+def perlinNoiseNumber(maxTimeStep, timeStep, octaves=1, timeSpan=30):
     base = 0.5
     x = float(timeStep) * timeSpan / maxTimeStep - 0.5 * timeSpan
     y = pnoise1(x + base, octaves)
     return y
 
-maxTimeStep = 10000 #Smoothness
+
+maxTimeStep = 10000  # Smoothness
 for timeStep in range(maxTimeStep):
     y = perlinNoiseNumber(maxTimeStep, timeStep)
     s.append(y)
 
-print s
+print(s)
 
 # Plot s in time series
 plt.plot(s)
@@ -56,5 +58,5 @@ plt.ylabel('Time series')
 plt.show()
 
 # Plot Histogram
-count, bins, ignored = plt.hist(s, 14, normed=True)
+count, bins, ignored = plt.hist(s, 14, density=True)
 plt.show()

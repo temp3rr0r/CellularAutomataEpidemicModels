@@ -1,20 +1,21 @@
 """ A Test 2D CA model """
 
 import random
+
 import numpy as np
 import pylab as pl
-from operator import itemgetter
 
 ''' Print the current generation '''
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter):
-    print "TimeStep %3i:  " % currentTimeStep
+    print("TimeStep %3i:  " % currentTimeStep)
     rowLabel = "  "
     for l in range(cellCountX):
         rowLabel += str(l) + " "
-    print rowLabel
+    print(rowLabel)
     for currentRow in range(cellCountY):
-        print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
-                         replace('2', infectedCharacter + " "))
+        print("%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
+                         replace('2', infectedCharacter + " ")))
+
 
 ''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
@@ -59,9 +60,10 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     return newState
 
+
 # SIS Model Parameters
-beta = 1.4247 # Chance to get S from neighbouring I
-gamma = 0.14286 # Chance to get from I to R (or normal in our case)
+beta = 1.4247  # Chance to get S from neighbouring I
+gamma = 0.14286  # Chance to get from I to R (or normal in our case)
 simulationIterations = 100
 cellCountX = 33
 cellCountY = 33
@@ -102,7 +104,7 @@ for currentTimeStep in range(simulationIterations):
     #print rowLabel
     #for currentRow in range(cellCountY):
     #    print "%s %s" % (currentRow, universeList[currentRow].replace('0', normalCharacter + " ").replace('1', susceptibleCharacter + " ").
-    print
+    # print
     #                     replace('2', infectedCharacter + " "))
 
     # Store the counts of I, S and the time iteration
@@ -135,28 +137,28 @@ for currentTimeStep in range(simulationIterations):
             universeList[currentRow] = newUniverseRow
 
 #print RES
-
+RES = np.array(RES)
 
 #Ploting
 pl.subplot(3, 1, 1)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
+pl.plot(RES[:, 3], RES[:, 2],  '-r', label='Infected')
+pl.plot(RES[:, 3], RES[:, 0], '-b', label='Normal')
 pl.legend(loc=0)
 pl.title('Infected and Normal')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
 pl.subplot(3, 1, 2)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
+pl.plot(RES[:, 3], RES[:, 1], '-r', label='Susceptibles')
+pl.plot(RES[:, 3], RES[:, 0], '-b', label='Normal')
 pl.legend(loc=0)
 pl.title('Susceptibles and Normal')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
 pl.subplot(3, 1, 3)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-b', label='Infected')
+pl.plot(RES[:, 3], RES[:, 1], '-r', label='Susceptibles')
+pl.plot(RES[:, 3], RES[:, 2], '-b', label='Infected')
 pl.legend(loc=0)
 pl.title('Susceptibles and Infected')
 pl.xlabel('Susceptibles')

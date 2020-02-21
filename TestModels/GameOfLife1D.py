@@ -1,9 +1,10 @@
 """ A 1D CA model in ASCII """
 
 import random
+
 import numpy as np
 import pylab as pl
-from operator import itemgetter
+
 
 def getNewState(previousNeighboursState):
     newState = '0'
@@ -21,7 +22,7 @@ def getNewState(previousNeighboursState):
         if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
             #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
             #betaChance = (2 - np.random.uniform()) # UNIFORM
-            betaChance = (2 - (np.random.poisson(5) % 10) * 0.1) # POISSON
+            betaChance = (2 - (np.random.poisson(5) % 10) * 0.1)  # POISSON
             if betaChance > 0 and betaChance < beta:
                 newState = '2'
             else:
@@ -36,6 +37,7 @@ def getNewState(previousNeighboursState):
                     newState = '1'
 
     return newState
+
 
 beta = 1.4247 # Chance to get S from neighbouring I
 gamma = 0.14286 # Chance to get from I to R (or normal in our case)
@@ -60,8 +62,8 @@ InitVariables = [InitSusceptibles, InitInfected, 0.0, 0.0]
 RES = [InitVariables]
  
 for i in range(maxgenerations):
-    print "Generation %3i:  %s" % ( i,
-          universe.replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter ))
+    print("Generation %3i:  %s" % ( i,
+          universe.replace('0', normalCharacter).replace('1', susceptibleCharacter).replace('2', infectedCharacter )))
 
     RES.append([universe.count('0'), universe.count('1'), universe.count('2'), i])
 
@@ -72,29 +74,29 @@ for i in range(maxgenerations):
         ) for i in range(cellcount)
     )
 
-print RES
 
+RES = np.array(RES)
 
-#Ploting
+# Ploting
 pl.subplot(3, 1, 1)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
+pl.plot(RES[:, 3], RES[:, 2],  '-r', label='Infected')
+pl.plot(RES[:, 3], RES[:, 0], '-b', label='Normal')
 pl.legend(loc=0)
 pl.title('Infected and Normal')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
 pl.subplot(3, 1, 2)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(0), RES), '-b', label='Normal')
+pl.plot(RES[:, 3], RES[:, 1], '-r', label='Susceptibles')
+pl.plot(RES[:, 3], RES[:, 0], '-b', label='Normal')
 pl.legend(loc=0)
 pl.title('Susceptibles and Normal')
 pl.xlabel('Time')
 pl.ylabel('Count')
 
 pl.subplot(3, 1, 3)
-pl.plot(map(itemgetter(3), RES), map(itemgetter(1), RES), '-r', label='Susceptibles')
-pl.plot(map(itemgetter(3), RES), map(itemgetter(2), RES), '-b', label='Infected')
+pl.plot(RES[:, 3], RES[:, 1], '-r', label='Susceptibles')
+pl.plot(RES[:, 3], RES[:, 2], '-b', label='Infected')
 pl.legend(loc=0)
 pl.title('Susceptibles and Infected')
 pl.xlabel('Susceptibles')
