@@ -143,14 +143,14 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
 
 ''' Print the current generation '''
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, susceptibleCharacter, exposedCharacter, infectedCharacter, recoveredCharacter):
-    print "TimeStep %3i:  " % currentTimeStep
+    print("TimeStep %3i:  " % currentTimeStep)
     rowLabel = "  "
     for l in range(cellCountX):
         rowLabel += str(l) + " "
-    print rowLabel
+    print(rowLabel)
     for currentRow in range(cellCountY):
-        print "%s %s" % (currentRow, universeList[currentRow].replace('0', susceptibleCharacter + " ").replace('1', exposedCharacter + " ").
-                         replace('2', infectedCharacter + " ").replace('3', recoveredCharacter + " "))
+        print("%s %s" % (currentRow, universeList[currentRow].replace('0', susceptibleCharacter + " ").replace('1', exposedCharacter + " ").
+                         replace('2', infectedCharacter + " ").replace('3', recoveredCharacter + " ")))
 
 ''' This method calculates the new state of the cell based on Moore HEX neighborhood '''
 def getNewState2DHex(selfCharacter, hexNeighbours):
@@ -345,12 +345,13 @@ for currentTimeStep in range(simulationIterations):
 #print RES
 
 #print(universeTimeSeries)
+RES = np.array(RES)
 
 #Ploting
 pl.subplot(1, 1, 1)
-pl.plot(map(itemgetter(4), RES), map(itemgetter(2), RES), '-r', label='Infected')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(0), RES), '-b', label='Susceptibles')
-pl.plot(map(itemgetter(4), RES), map(itemgetter(3), RES), '-g', label='Recovered')
+pl.plot(RES[:, 4], RES[:, 2], '-r', label='Infected')
+pl.plot(RES[:, 4], RES[:, 0], '-b', label='Susceptibles')
+pl.plot(RES[:, 4], RES[:, 3], '-g', label='Recovered')
 pl.legend(loc=0)
 pl.title('CA SIR')
 pl.xlabel('Time')

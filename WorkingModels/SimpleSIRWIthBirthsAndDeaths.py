@@ -41,7 +41,7 @@ t_start = 0.0; t_end = ND; t_inc = TS
 t_range = np.arange(t_start, t_end+t_inc, t_inc)
 RES = spi.odeint(diff_eqs,INPUT,t_range)
 
-print RES
+print(RES)
 
 #Ploting
 pl.subplot(311)

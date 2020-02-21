@@ -17,6 +17,6 @@ The most interesting source is inside the "WorkingModels" directory which contai
 
 ## Required compiler/plugins:
 
-* Python 2.7 32bit version for win32.(package Python 2.7 Anaconda 2.3.0  Windows 32bit version from https://www.continuum.io/downloads). It includes Numpy (for numerics/random) and Pylab (for plots).
+* Python 2.7 32bit version for win32.(package Python 3.4 Anaconda 2.3.0  Windows 32bit version from https://www.continuum.io/downloads). It includes Numpy (for numerics/random) and Pylab (for plots).
 * IDE: PyCharm 4.5 Professional
-* 2D graphics: PyGame version 19.2a0 Win32 for Python 2.7. (http://pygame.org/ftp/pygame-1.9.2a0.win32-py2.7.msi )
+* 2D graphics: PyGame version 19.2a0 Win32 for Python 3.4. (http://pygame.org/ftp/pygame-1.9.2a0.win32-py2.7.msi )

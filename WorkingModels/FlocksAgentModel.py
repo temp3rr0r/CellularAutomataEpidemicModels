@@ -3,19 +3,20 @@ import numpy as np
 import random
 from noise import pnoise1
 
+
 class DrawHandler:
     def drawWalker(self):
         # Initialize the game engine
         pygame.init()
 
         # Define the colors we will use in RGB format
-        BLACK = (  0,   0,   0)
+        BLACK = (0, 0, 0)
         WHITE = (255, 255, 255)
-        BLUE =  (  0,   0, 255)
-        GREEN = (  0, 255,   0)
-        YELLOW =   (255,   255,   0)
-        RED =   (255,   0,   0)
-        ORANGE =   (255,   165,   0)
+        BLUE = (0, 0, 255)
+        GREEN = (0, 255, 0)
+        YELLOW = (255, 255, 0)
+        RED = (255, 0, 0)
+        ORANGE = (255, 165, 0)
 
         # Set the height and width of the screen
         screenHeight = cellCountX
@@ -25,30 +26,30 @@ class DrawHandler:
         screen = pygame.display.set_mode(size)
         screen.fill(WHITE)
 
-        #Loop until the user clicks the close button.
+        # Loop until the user clicks the close button.
         clock = pygame.time.Clock()
         myfont = pygame.font.SysFont("monospace", 18)
 
         # Make sure game doesn't run at more than 60 frames per second
         mainloop = True
-        maxFPS = 60 # desired max. framerate in frames per second.
+        maxFPS = 60  # desired max. framerate in frames per second.
         cycletime = 0
-        interval = .15#.15 # how long one single images should be displayed in seconds
-        delayAmount = 500
+        interval = .15  # .15 # how long one single images should be displayed in seconds
+        delayAmount = 5 # 500 # milliseconds
         currentTimeStep = 0
         mouseX = 0
         mouseY = 0
         mousePoint = PVector(0, 0)  # Point of mouse vector
 
-        moverObjectCount = 20
-        moverToMouseList = [ MoverToMouse() for i in range(moverObjectCount)]
-        flockSize = 60
+        moverObjectCount = 20  # 20
+        moverToMouseList = [MoverToMouse() for i in range(moverObjectCount)]
+        flockSize = 1  # 60
         flockList = Flock(flockSize)
 
         while mainloop:
 
             milliseconds = clock.tick(maxFPS)  # milliseconds passed since last frame
-            seconds = milliseconds / 1000.0 # seconds passed since last frame (float)
+            seconds = milliseconds / 1000.0  # seconds passed since last frame (float)
             cycletime += seconds
             if cycletime > interval:
                 cycletime = 0
@@ -63,12 +64,14 @@ class DrawHandler:
                     event = pygame.event.poll()
                     if event.type == pygame.QUIT:
                         running = 0
-                    elif event.type == pygame.MOUSEMOTION:
+                    # elif event.type == pygame.MOUSEMOTION:
+                    #     mouseX, mouseY = event.pos
+                    elif event.type == pygame.MOUSEBUTTONDOWN:
                         mouseX, mouseY = event.pos
 
                     mousePoint = PVector(mouseX, mouseY)
 
-                    screen.fill(WHITE) # Refresh screen
+                    screen.fill(WHITE)  # Refresh screen
 
                     flockList.run()
                     # for currentWalker in moverToMouseList:
@@ -83,9 +86,8 @@ class DrawHandler:
                     #     currentWalker.walkVectorAcceleration(mousePointDirection)
 
                     for currentBoid in flockList.Boids:
-
                         # Draw point
-                        #screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
+                        # screen.fill(currentColour,((walker.X, walker.Y), (1, 1)))
 
                         # Draw triangle
                         # triangleSide = 8 # pixels
@@ -97,15 +99,21 @@ class DrawHandler:
                         # Draw circle
                         circleRadius = 5
                         circleThickness = 1
-                        pygame.draw.circle(screen, BLUE, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, 0)
-                        pygame.draw.circle(screen, BLACK, (int(currentBoid.Location.X), int(currentBoid.Location.Y)), circleRadius, circleThickness)
+                        pygame.draw.circle(screen, BLUE, (int(currentBoid.Location.X), int(currentBoid.Location.Y)),
+                                           circleRadius, 0)
+                        pygame.draw.circle(screen, BLACK, (int(currentBoid.Location.X), int(currentBoid.Location.Y)),
+                                           circleRadius, circleThickness)
 
-                        label = myfont.render("Flock Size: " + str(len(flockList.Boids)), 1, RED)
-                        screen.blit(label, (10, 5)) # Draw the text
+                        # label = myfont.render("Flock Size: " + str(len(flockList.Boids)), 1, RED)
+                        label = myfont.render("Flock Size: " + str(len(flockList.Boids)) + " Target (click) x:{} y:{}".format(mouseX, mouseY), 1, RED)
+                        screen.blit(label, (10, 5))  # Draw the text
+
+                        label = myfont.render("X".format(mouseX, mouseY), 1, RED)
+                        screen.blit(label, (mouseX, mouseY))  # Draw the text
 
                     pygame.display.set_caption("TimeStep %3i:  " % flockList.T)
 
-                    pygame.time.wait(delayAmount) # Delay the update of the walker
+                    pygame.time.wait(delayAmount)  # Delay the update of the walker
 
                     pygame.display.flip()
 
@@ -113,49 +121,61 @@ class DrawHandler:
                 # Go ahead and update the screen with what we've drawn.
                 pygame.display.flip()
 
+
 class PVector:
     def __init__(self, x, y):
         self.X = x
         self.Y = y
+
     def add(self, inputVector):
         self.X += inputVector.X
         self.Y += inputVector.Y
+
     def subtract(self, inputVector):
         self.X -= inputVector.X
         self.Y -= inputVector.Y
+
     def multiply(self, inputNumber):
         self.X *= inputNumber
         self.Y *= inputNumber
+
     def divide(self, inputNumber):
         self.X /= inputNumber
         self.Y /= inputNumber
+
     def random2D(self):
         self.X = random.random()
         self.Y = random.random()
+
     def magnitude(self):
         return np.sqrt(self.X * self.X + self.Y * self.Y)
+
     def limit(self, max):
         if self.magnitude() > max:
             self.normalize()
             self.multiply(max)
+
     def setMangitude(self, inputMagnitude):
         self.normalize()
         self.multiply(inputMagnitude)
+
     def normalize(self):
         m = self.magnitude()
         if (m != 0):
             self.divide(m)
+
     def getDistance(self, otherLocation):
-        return np.sqrt((self.X - otherLocation.X)** 2 + (self.Y - otherLocation.Y)**2)
+        return np.sqrt((self.X - otherLocation.X) ** 2 + (self.Y - otherLocation.Y) ** 2)
+
 
 class Boid:
     def __init__(self, x, y):
-        self.Location = PVector(cellCountX / 2, cellCountY / 2)#PVector(x, y)
-        self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)#PVector(0, 0)
-        self.Acceleration = PVector(-0.1, 1)#PVector(-0.01, 0.1)#PVector(0, 0)
-        self.R = 4#1.0 # For size
+        self.Location = PVector(cellCountX / 2, cellCountY / 2)  # PVector(x, y)
+        self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)  # PVector(0, 0)
+        self.Acceleration = PVector(-0.1, 1)  # PVector(-0.01, 0.1)#PVector(0, 0)
+        self.R = 4  # 1.0 # For size
         self.MaxForce = 0.2
-        self.MaxSpeed = 2#0.1
+        self.MaxSpeed = 2  # 0.1
         self.NeighbourDistance = 1
 
     def invertEdges(self):
@@ -176,7 +196,7 @@ class Boid:
 
     def checkEdges(self):
         self.invertEdges()
-        #self.wrapEdges()
+        # self.wrapEdges()
 
     def update(self):
         self.Velocity.add(self.Acceleration)
@@ -266,22 +286,25 @@ class Boid:
     def applyForce(self, inputForce):
         self.Acceleration.add(inputForce)
 
+
 class Flock:
     def __init__(self, inputBoidCount):
         self.BoidCount = inputBoidCount
-        self.Boids = [ Boid(10, 10) for i in range(self.BoidCount)]
+        self.Boids = [Boid(10, 10) for i in range(self.BoidCount)]
         self.T = 0
+
     def run(self):
         self.T += 1
         for currentBoid in self.Boids:
             currentBoid.flock(self.Boids)
+
 
 class MoverToMouse:
     def __init__(self):
         self.Location = PVector(random.randint(0, cellCountX), random.randint(0, cellCountY))
         self.Velocity = PVector(random.uniform(-2, 2) * 4, random.uniform(-2, 2) * 4)
         self.Acceleration = PVector(-0.01, 0.1)
-        self.TopSpeed = 20
+        self.TopSpeed = 20  # 20
         self.T = 0
 
     def update(self):
@@ -304,7 +327,7 @@ class MoverToMouse:
             self.Location.Y = 0
 
     def checkEdges(self):
-        #self.invertEdges()
+        # self.invertEdges()
         self.wrapEdges()
 
     def walkVectorAcceleration(self, acceleration):
@@ -347,6 +370,7 @@ class MoverToMouse:
         self.Velocity.multiply(10)
 
         self.update()
+
 
 timeStart = 0.0
 timeEnd = 5000

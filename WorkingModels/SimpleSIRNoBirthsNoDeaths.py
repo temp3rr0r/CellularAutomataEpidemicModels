@@ -68,7 +68,7 @@ t_range = np.arange(t_start, t_end + t_start, t_inc)
 
 RES = spi.odeint(diff_eqs, InitVariables, t_range)
 
-print RES
+print(RES)
 
 #Ploting
 pl.subplot(111)
