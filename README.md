@@ -7,7 +7,7 @@ The most interesting source is inside the "WorkingModels" directory which contai
 
 * Stochastic Cellular Automata: SEIRS (Susceptible Exposed Infected Recovered), SIS, SIR, SEIS, SIRS
 * Numerical ODE based: SIR with no birthds/deaths and SIR with birthds/deaths
-* Cellular Automata "Forrest Fire": SIR
+* Cellular Automata "Forest Fire": SIR
 * Coupled Lattice 2D: with Moore and von Neumann neighborhoods
 
 ## Features:
