@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/FlocksAgentModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/ForestFireCA.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/ForestFireCA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSEIRSImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSEIRSImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRSImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRSImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSISImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSISImage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLifeSEISImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLifeSEISImage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkingModels/SimpleSIRWIthBirthsAndDeaths.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/SimpleSIRWIthBirthsAndDeaths.py" afterDir="false" />
     </list>
@@ -403,7 +395,7 @@
       <workItem from="1582279064213" duration="615000" />
       <workItem from="1582279695866" duration="2318000" />
       <workItem from="1582282039572" duration="2571000" />
-      <workItem from="1582285460643" duration="5481000" />
+      <workItem from="1582285460643" duration="5955000" />
     </task>
     <task id="LOCAL-00007" summary="Working SIS 2D GoL">
       <created>1444817623801</created>
@@ -799,22 +791,22 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="385" y="299" key="FileChooserDialogImpl/0.0.1920.1170@0.0.1920.1170" timestamp="1582282379892" />
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582292030095">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582292548531">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582292030095" />
-    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582292030095">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
+    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582292548531">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582292030095" />
-    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582292030095">
+    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
+    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582292548531">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582292030095" />
-    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582292030095">
+    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582292548531">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582292030095" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
     <state width="1877" height="398" key="GridCell.Tab.1.bottom" timestamp="1582282028702">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -875,12 +867,12 @@
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1582291631909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife1D.coverage" NAME="GameOfLife1D Coverage Results" MODIFIED="1582288639149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLifeSEISImage.coverage" NAME="GameOfLifeSEISImage Coverage Results" MODIFIED="1582291965828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1582292022348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1582292543470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1582290872428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSEIRSImage.coverage" NAME="GameOfLife2DSEIRSImage Coverage Results" MODIFIED="1582291647745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$FlocksAgentModel.coverage" NAME="FlocksAgentModel Coverage Results" MODIFIED="1582290695729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1582288645749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1582292030095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1582292548524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DHex.coverage" NAME="GameOfLife2DHex Coverage Results" MODIFIED="1582289607784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$png_to_movie.coverage" NAME="png_to_movie Coverage Results" MODIFIED="1582285565379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels/movie" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRSImage.coverage" NAME="GameOfLife2DSIRSImage Coverage Results" MODIFIED="1582291777188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />

@@ -29,37 +29,38 @@ import scipy.integrate as spi
 import numpy as np
 import pylab as pl
 
-beta=.4247
-gamma=.14286
+beta = .4247
+gamma = .14286
 
 populationCount = 10000
 
-TimeStep=1.0
-TimeRange=70.0
-#InitInfected=1e-6
-#InitSusceptibles=1-1e-6
+TimeStep = 1.0
+TimeRange = 70.0
+# InitInfected=1e-6
+# InitSusceptibles=1-1e-6
 InitInfected = 0.0016
 InitSusceptibles = 1 - InitInfected
 InitVariables = (InitSusceptibles, InitInfected, 0.0, 0.0)
 
 
-def diff_eqs(INP,t):
-	'''The main set of equations'''
-	Y=np.zeros((4))
-	V = INP
+def diff_eqs(INP, t):
+    '''The main set of equations'''
+    Y = np.zeros((4))
+    V = INP
 
-	'''SIR'''
-	Y[0] = - beta * V[0] * V[1]
-	Y[1] = beta * V[0] * V[1] - gamma * V[1]
-	Y[2] = gamma * V[1]
+    '''SIR'''
+    Y[0] = - beta * V[0] * V[1]
+    Y[1] = beta * V[0] * V[1] - gamma * V[1]
+    Y[2] = gamma * V[1]
 
-	'''SIS'''
-	'''Y[0] = - beta * V[0] * V[1] + gamma * V[1]
+    '''SIS'''
+    '''Y[0] = - beta * V[0] * V[1] + gamma * V[1]
 	Y[1] = beta * V[0] * V[1] - gamma * V[1]'''
 
-	Y[3] = V[0] + V[1] + V[2] # Should always be constant
-	#Y[3] = Y[0] + Y[1] + Y[2] # Should always be zero
-	return Y   # For odeint
+    Y[3] = V[0] + V[1] + V[2]  # Should always be constant
+    # Y[3] = Y[0] + Y[1] + Y[2] # Should always be zero
+    return Y  # For odeint
+
 
 t_start = 0.0
 t_end = TimeRange
@@ -70,22 +71,20 @@ RES = spi.odeint(diff_eqs, InitVariables, t_range)
 
 print(RES)
 
-#Ploting
+# Ploting
 pl.subplot(111)
-pl.plot(RES[:,0] * populationCount, '-b', label='Susceptibles')
-pl.plot(RES[:,2] * populationCount, '-g', label='Recovereds')
-pl.plot(RES[:,1] * populationCount, '-r', label='Infected')
+pl.plot(RES[:, 0] * populationCount, '-b', label='Susceptibles')
+pl.plot(RES[:, 2] * populationCount, '-g', label='Recovereds')
+pl.plot(RES[:, 1] * populationCount, '-r', label='Infected')
 pl.legend(loc=0)
 pl.title('Numerical SIR')
 pl.xlabel('Time')
 pl.ylabel('Susceptibles and Recovereds')
 
-#pl.subplot(212)
-#pl.plot(RES[:,0], '-b', label='Susceptibles')
-#pl.plot(RES[:,1], '-r', label='Infected')
-#pl.legend(loc=0)
-#pl.xlabel('Time')
-#pl.ylabel('Susceptibles and Infectious')
+# pl.subplot(212)
+# pl.plot(RES[:,0], '-b', label='Susceptibles')
+# pl.plot(RES[:,1], '-r', label='Infected')
+# pl.legend(loc=0)
+# pl.xlabel('Time')
+# pl.ylabel('Susceptibles and Infectious')
 pl.show()
-
-
