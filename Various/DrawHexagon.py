@@ -1,13 +1,7 @@
 """ A very plain script that prints a Hexagon in a 2D grid """
 
-import random
-import numpy as np
-import pylab as pl
-from operator import itemgetter
 # Import a library of functions called 'pygame'
 import pygame
-from math import pi
-import time
 
 
 def drawSquare(screen, currentColour, currentColumn, cellSize, currentRow):

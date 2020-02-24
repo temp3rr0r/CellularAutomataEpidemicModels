@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkingModels/SimpleSIRWIthBirthsAndDeaths.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/SimpleSIRWIthBirthsAndDeaths.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Various/Distributions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Various/Distributions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Various/DrawHexagon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Various/DrawHexagon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,6 +396,7 @@
       <workItem from="1582279695866" duration="2318000" />
       <workItem from="1582282039572" duration="2571000" />
       <workItem from="1582285460643" duration="5955000" />
+      <workItem from="1582531033266" duration="782000" />
     </task>
     <task id="LOCAL-00007" summary="Working SIS 2D GoL">
       <created>1444817623801</created>
@@ -827,10 +828,10 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="107" y="187" key="SettingsEditor/0.0.1920.1170@0.0.1920.1170" timestamp="1582282387065" />
-    <state x="656" y="409" key="com.intellij.ide.util.TipDialog" timestamp="1582285460779">
+    <state x="656" y="409" key="com.intellij.ide.util.TipDialog" timestamp="1582531110452">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="656" y="409" key="com.intellij.ide.util.TipDialog/0.0.1920.1170@0.0.1920.1170" timestamp="1582285460779" />
+    <state x="656" y="409" key="com.intellij.ide.util.TipDialog/0.0.1920.1170@0.0.1920.1170" timestamp="1582531110452" />
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1582290395057">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -846,7 +847,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Various/DrawHexagon.py</url>
-          <line>112</line>
+          <line>106</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
