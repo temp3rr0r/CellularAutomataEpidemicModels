@@ -250,7 +250,7 @@ delta = 0  # TODO: Infectious Mortality Rate
 simulation_iterations = 70
 cell_count_x = 100
 cell_count_y = 100
-hexagon_layout = True
+hexagon_layout = False
 
 # Init values
 susceptible_character = 'S'

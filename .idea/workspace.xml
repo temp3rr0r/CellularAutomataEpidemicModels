@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="Minor refactorings.">
+    <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="Minor refactorings on 2D SIR.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" afterDir="false" />
     </list>
@@ -397,14 +397,7 @@
       <workItem from="1582279695866" duration="2318000" />
       <workItem from="1582282039572" duration="2571000" />
       <workItem from="1582285460643" duration="5955000" />
-      <workItem from="1582531033266" duration="3438000" />
-    </task>
-    <task id="LOCAL-00009" summary="Printing via method">
-      <created>1444821277041</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1444821277041</updated>
+      <workItem from="1582531033266" duration="3707000" />
     </task>
     <task id="LOCAL-00010" summary="Running Hex 2D SIS cellular automata">
       <created>1444826524399</created>
@@ -742,7 +735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582534582486</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Minor refactorings on 2D SIR.">
+      <created>1582535635366</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1582535635366</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -757,7 +757,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="After adding the models:&#10;- Coupled lattice 2D with Von Neumann neighborhood&#10;- Coupled lattice 2D with Moore neighborhood&#10;- ForestFire 2D CA&#10;- Numerical SIR with Births and Deaths" />
     <MESSAGE value="Added first &quot;random walking&quot; vector agent in a 2D plane" />
     <MESSAGE value="Speedups on 2D random walking agent drawing" />
     <MESSAGE value="Before updating the Step function of the random walker" />
@@ -782,37 +781,38 @@
     <MESSAGE value="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance" />
     <MESSAGE value="Library cleanups." />
     <MESSAGE value="Minor refactorings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor refactorings." />
+    <MESSAGE value="Minor refactorings on 2D SIR." />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor refactorings on 2D SIR." />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582285863841">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="721" y="388" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1170@0.0.1920.1170" timestamp="1582285863841" />
-    <state x="555" y="179" key="CommitChangelistDialog2" timestamp="1582534581960">
+    <state x="555" y="179" key="CommitChangelistDialog2" timestamp="1582535634918">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="555" y="179" key="CommitChangelistDialog2/0.0.1920.1170@0.0.1920.1170" timestamp="1582534581960" />
+    <state x="555" y="179" key="CommitChangelistDialog2/0.0.1920.1170@0.0.1920.1170" timestamp="1582535634918" />
     <state x="385" y="299" key="FileChooserDialogImpl" timestamp="1582535491294">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="385" y="299" key="FileChooserDialogImpl/0.0.1920.1170@0.0.1920.1170" timestamp="1582535491294" />
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582535369513">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582535686132">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582535369513" />
-    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582535369513">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582535686132" />
+    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582535686132">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582535369513" />
-    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582535369513">
+    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582535686132" />
+    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582535686132">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582535369513" />
-    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582535369513">
+    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582535686132" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582535686132">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582535369513" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582535686132" />
     <state width="1877" height="398" key="GridCell.Tab.1.bottom" timestamp="1582282028702">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -833,10 +833,10 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="107" y="187" key="SettingsEditor/0.0.1920.1170@0.0.1920.1170" timestamp="1582282387065" />
-    <state x="552" y="318" key="Vcs.Push.Dialog.v2" timestamp="1582534584858">
+    <state x="552" y="318" key="Vcs.Push.Dialog.v2" timestamp="1582535636809">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state x="552" y="318" key="Vcs.Push.Dialog.v2/0.0.1920.1170@0.0.1920.1170" timestamp="1582534584858" />
+    <state x="552" y="318" key="Vcs.Push.Dialog.v2/0.0.1920.1170@0.0.1920.1170" timestamp="1582535636809" />
     <state x="656" y="409" key="com.intellij.ide.util.TipDialog" timestamp="1582531110452">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -869,7 +869,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1582533875144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1582535369506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1582535686125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife1D.coverage" NAME="GameOfLife1D Coverage Results" MODIFIED="1582288639149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLifeSEISImage.coverage" NAME="GameOfLifeSEISImage Coverage Results" MODIFIED="1582291965828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1582292543470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
