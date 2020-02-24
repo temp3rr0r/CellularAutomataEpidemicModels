@@ -1,4 +1,4 @@
-""" A ascii 2D CA model for SEIRS without mortality or birth """
+""" An ascii 2D CA model for SEIRS without mortality or birth """
 
 import random
 
@@ -23,9 +23,18 @@ def printGenerationUniverseHex(currentTimeStep, cellCountX, cellCountY, normalCh
                             replace('2', infectedCharacter + " ")))
 
 
-# Print the current generation
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter,
                             infectedCharacter):
+    """
+    Print the current generation.
+    :param currentTimeStep:
+    :param cellCountX:
+    :param cellCountY:
+    :param normalCharacter:
+    :param susceptibleCharacter:
+    :param infectedCharacter:
+    :return:
+    """
     print("TimeStep %3i:  " % currentTimeStep)
     rowLabel = "  "
     for l in range(cellCountX):
@@ -37,7 +46,7 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
                          replace('2', infectedCharacter + " ")))
 
 
-# This method calculates the new state of the cell based on Van Neumann HEX neighborhood
+# This method calculates the new state of the cell based on Von Neumann HEX neighborhood
 def getNewState2DHex(selfCharacter, hexNeighbours):
     newState = '0'
     newState = selfCharacter

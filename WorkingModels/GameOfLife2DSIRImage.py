@@ -3,58 +3,61 @@
 import random
 import numpy as np
 import pylab as pl
-from operator import itemgetter
-# Import a library of functions called 'pygame'
 import pygame
 
-def getRandomNumber(distribution):
+
+def get_random_number(distribution):
     if distribution == 0:
-        returningRandomNumber = np.random.uniform() # UNIFORM
+        returning_random_number = np.random.uniform()  # UNIFORM
     elif distribution == 1:
-        returningRandomNumber = np.random.normal(.5, .1) # NORMAL
+        returning_random_number = np.random.normal(.5, .1)  # NORMAL
     elif distribution == 2:
-        returningRandomNumber = (np.random.binomial(20, .5, 100) % 10) * 0.1 # BINOMIAL
+        returning_random_number = (np.random.binomial(20, .5, 100) % 10) * 0.1  # BINOMIAL
     elif distribution == 3:
-        returningRandomNumber = np.random.poisson(2) * .1 # POISSON
-    return returningRandomNumber
+        returning_random_number = np.random.poisson(2) * .1  # POISSON
+    return returning_random_number
 
-def drawSquare(screen, currentColour, currentColumn, cellSize, currentRow):
-    pygame.draw.rect(screen, currentColour, [currentColumn * cellSize, currentRow * cellSize, (currentColumn + 1)
-                                             * cellSize, (currentRow + 1) * cellSize])
 
-def drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow):
-    minX = currentColumn * cellSize
-    maxX =(currentColumn + 1)* cellSize
-    minY = currentRow * cellSize
-    maxY = (currentRow + 1) * cellSize
-    quarterLength = (maxY - minY) / 4
+def draw_square(screen, current_colour, current_column, cell_size, current_row):
+    pygame.draw.rect(screen, current_colour, [current_column * cell_size, current_row * cell_size, (current_column + 1)
+                                              * cell_size, (current_row + 1) * cell_size])
 
-    spacing =  (2 * quarterLength)
 
-    if currentColumn > 1:
-        minX -= spacing * int(currentColumn / 2)
-        maxX -= spacing * int(currentColumn / 2)
+def draw_hexagon(screen, current_colour, current_column, cell_size, current_row):
 
-    if currentColumn % 2 == 1:
-        minX -= quarterLength
-        maxX -= quarterLength
-        minY += spacing
-        maxY += spacing
+    min_x = current_column * cell_size
+    max_x = (current_column + 1) * cell_size
+    min_y = current_row * cell_size
+    max_y = (current_row + 1) * cell_size
+    quarter_length = (max_y - min_y) / 4
 
-    center = [minX + 2 * quarterLength, minY + 2 * quarterLength]
-    a = [minX + quarterLength, minY]
-    b = [minX + 3 * quarterLength, minY]
-    d = [maxX, minY + 2 * quarterLength]
-    e = [minX + 3 * quarterLength, maxY]
-    f = [minX + quarterLength, maxY]
-    g = [minX, minY + 2 * quarterLength]
+    spacing =  (2 * quarter_length)
 
-    pygame.draw.polygon(screen, currentColour, [center, a, b])
-    pygame.draw.polygon(screen, currentColour, [center, b, d])
-    pygame.draw.polygon(screen, currentColour, [center, d, e])
-    pygame.draw.polygon(screen, currentColour, [center, e, f])
-    pygame.draw.polygon(screen, currentColour, [center, f, g])
-    pygame.draw.polygon(screen, currentColour, [center, g, a])
+    if current_column > 1:
+        min_x -= spacing * int(current_column / 2)
+        max_x -= spacing * int(current_column / 2)
+
+    if current_column % 2 == 1:
+        min_x -= quarter_length
+        max_x -= quarter_length
+        min_y += spacing
+        max_y += spacing
+
+    center = [min_x + 2 * quarter_length, min_y + 2 * quarter_length]
+    a = [min_x + quarter_length, min_y]
+    b = [min_x + 3 * quarter_length, min_y]
+    d = [max_x, min_y + 2 * quarter_length]
+    e = [min_x + 3 * quarter_length, max_y]
+    f = [min_x + quarter_length, max_y]
+    g = [min_x, min_y + 2 * quarter_length]
+
+    pygame.draw.polygon(screen, current_colour, [center, a, b])
+    pygame.draw.polygon(screen, current_colour, [center, b, d])
+    pygame.draw.polygon(screen, current_colour, [center, d, e])
+    pygame.draw.polygon(screen, current_colour, [center, e, f])
+    pygame.draw.polygon(screen, current_colour, [center, f, g])
+    pygame.draw.polygon(screen, current_colour, [center, g, a])
+
 
 def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     # Initialize the game engine
@@ -74,7 +77,7 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     screenWidth = 800
 
     cellSize = screenHeight / cellCountX
-    if hexagonLayout:
+    if hexagon_layout:
         screenHeight *= 0.85
         screenWidth *= 1.04
 
@@ -88,10 +91,10 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
     #while 1:
     # Make sure game doesn't run at more than 60 frames per second
     mainloop = True
-    FPS = 60                           # desired max. framerate in frames per second.
+    FPS = 60  # desired max. framerate in frames per second.
     playtime = 0
     cycletime = 0
-    interval = .15#.15 # how long one single images should be displayed in seconds
+    interval = .15  #.15 # how long one single images should be displayed in seconds
     picnr = 0
 
     #for currentStep in range(simulationIterations):
@@ -130,10 +133,10 @@ def drawGenerationUniverse(cellCountX, cellCountY, universeTimeSeries):
                         if universeTimeSeries[currentTimeStep][currentRow][currentColumn] == '3':
                             currentColour = GREEN
 
-                        if hexagonLayout:
-                            drawHexagon(screen, currentColour, currentColumn, cellSize, currentRow)
+                        if hexagon_layout:
+                            draw_hexagon(screen, currentColour, currentColumn, cellSize, currentRow)
                         else:
-                            drawSquare(screen, currentColour, currentColumn, cellSize, currentRow)
+                            draw_square(screen, currentColour, currentColumn, cellSize, currentRow)
 
         # This MUST happen after all the other drawing commands.
         # Go ahead and update the screen with what we've drawn.
@@ -158,11 +161,11 @@ def getNewState2DHex(selfCharacter, hexNeighbours):
 
     if selfCharacter == '0': # If S and there is an Infected close, be Infected
         if (hexNeighbours.count('2') > 0):
-            betaChance = getRandomNumber(0)
+            betaChance = get_random_number(0)
             if betaChance < beta and betaChance > 0:
                 newState = '2'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
-        gammaChance = getRandomNumber(0)
+        gammaChance = get_random_number(0)
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
@@ -177,11 +180,11 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
     if selfCharacter == '0': # If S and there is an Infected close, be Infected
         if currentRowNeighbours.count('2') > 0 or upperRowNeighbours.count('2') > 0 or lowerRowNeighbours.count('2') > 0:
-            betaChance = getRandomNumber(0)
+            betaChance = get_random_number(0)
             if betaChance < beta and betaChance > 0:
                 newState = '2'
     elif selfCharacter == '2': # if Infected, calculate the probability to be Recovered
-        gammaChance = getRandomNumber(0)
+        gammaChance = get_random_number(0)
 
         if gammaChance < gamma and gammaChance > 0:
             newState = '3'
@@ -211,18 +214,18 @@ def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
 
 # Rates - Units are 1/time in days
 
-beta = .4247 # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
+beta = .4247  # Transmission Rate: S -> E (or S->I) # TODO: Only different parameter vs the numerical model, others are the same
 #sigma = .9 # Incubation Rate: E -> I (or epsilon)
-gamma =.14286 #.2 # Recovery Rate: I -> R
-#alpha = .22 # Immunity Loss Rate: I -> S
-mu = 0 # TODO: Mortality Rate
-muStart = 0 # TODO: Birth Rate
-delta = 0 # TODO: Infectious Mortality Rate
+gamma =.14286  #.2 # Recovery Rate: I -> R
+#alpha = .22  # Immunity Loss Rate: I -> S
+mu = 0  # TODO: Mortality Rate
+muStart = 0  # TODO: Birth Rate
+delta = 0  # TODO: Infectious Mortality Rate
 
 simulationIterations = 70
 cellCountX = 100
 cellCountY = 100
-hexagonLayout = False
+hexagon_layout = True
 
 # Init values
 susceptibleCharacter = 'S'
@@ -280,7 +283,7 @@ for currentTimeStep in range(simulationIterations):
     oldUniverseList = []
     toCopyUniverseList = []
     for currentRow in range(cellCountY):
-        if hexagonLayout:
+        if hexagon_layout:
             oldUniverseList.append(universeList[currentRow])
         else:
             oldUniverseList.append(extremeEndValue + universeList[currentRow] + extremeEndValue)
@@ -292,7 +295,7 @@ for currentTimeStep in range(simulationIterations):
         newUniverseRow = ''
         for currentColumn in range(cellCountX):
 
-            if hexagonLayout:
+            if hexagon_layout:
                 # HEX
                 hexNeighbours = list("000000") # list of characters
 
@@ -342,12 +345,11 @@ for currentTimeStep in range(simulationIterations):
                 # TODO: Square neighbours to list of characters
                 #squareNeighbours = list("00000000") # list of characters
 
-#print RES
-
-#print(universeTimeSeries)
+# print RES
+# print(universeTimeSeries)
 RES = np.array(RES)
 
-#Ploting
+# Ploting
 pl.subplot(1, 1, 1)
 pl.plot(RES[:, 4], RES[:, 2], '-r', label='Infected')
 pl.plot(RES[:, 4], RES[:, 0], '-b', label='Susceptibles')

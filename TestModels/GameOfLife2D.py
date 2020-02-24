@@ -5,8 +5,18 @@ import random
 import numpy as np
 import pylab as pl
 
-''' Print the current generation '''
+
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter, infectedCharacter):
+    """
+    Print the current generation.
+    :param currentTimeStep:
+    :param cellCountX:
+    :param cellCountY:
+    :param normalCharacter:
+    :param susceptibleCharacter:
+    :param infectedCharacter:
+    :return:
+    """
     print("TimeStep %3i:  " % currentTimeStep)
     rowLabel = "  "
     for l in range(cellCountX):
@@ -17,8 +27,14 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
                          replace('2', infectedCharacter + " ")))
 
 
-''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):
+    """
+    Calculate the new state of the cell based on Van Neumann neighborhood.
+    :param currentRowNeighbours:
+    :param upperRowNeighbours:
+    :param lowerRowNeighbours:
+    :return:
+    """
     newState = '0'
 
     leftCharacter = currentRowNeighbours[0]

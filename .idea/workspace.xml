@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="">
+    <list default="true" id="1da43b6d-7ed9-481f-bc7f-60634195c520" name="Default" comment="Library cleanups.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Various/Distributions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Various/Distributions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Various/DrawHexagon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Various/DrawHexagon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestModels/GameOfLife1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestModels/GameOfLife1D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestModels/GameOfLife2D.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestModels/GameOfLife2D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestModels/GameOfLife2DHex.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestModels/GameOfLife2DHex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestModels/GameOfLife2DSIR.py" beforeDir="false" afterPath="$PROJECT_DIR$/TestModels/GameOfLife2DSIR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,9 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="SimpleSIRNoBirthsNoDeaths" />
+    <favorites_list name="SimpleSIRNoBirthsNoDeaths">
+      <favorite_root url="file://$PROJECT_DIR$/Various/DrawHexagon.py" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -91,7 +96,7 @@
       <recent name="C:\Users\madks_000\PycharmProjects\SimpleSIRNoBirthsNoDeaths\Various" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SimpleSIRWIthBirthsAndDeaths">
+  <component name="RunManager" selected="Python.GameOfLife2DSIRImage">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -158,7 +163,7 @@
       <option name="ADDITIONAL_ARGS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GameOfLife2DSIRSImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="CoupledLattice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CellularAutomataEpidemicModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -171,7 +176,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRSImage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/CoupledLattice.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -180,7 +185,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GameOfLife2DSISImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Distributions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CellularAutomataEpidemicModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -188,12 +193,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WorkingModels" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Various" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSISImage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Various/Distributions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,7 +207,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GameOfLifeSEISImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="GameOfLife2DSIR" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CellularAutomataEpidemicModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -210,12 +215,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/WorkingModels" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TestModels" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/GameOfLifeSEISImage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TestModels/GameOfLife2DSIR.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,7 +229,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="SimpleSIRNoBirthsNoDeaths" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="GameOfLife2DSIRImage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CellularAutomataEpidemicModels" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -237,7 +242,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/SimpleSIRNoBirthsNoDeaths.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WorkingModels/GameOfLife2DSIRImage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -366,19 +371,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.GameOfLife2DSIRSImage" />
-      <item itemvalue="Python.GameOfLife2DSISImage" />
-      <item itemvalue="Python.GameOfLifeSEISImage" />
-      <item itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
+      <item itemvalue="Python.GameOfLife2DSIR" />
+      <item itemvalue="Python.Distributions" />
+      <item itemvalue="Python.CoupledLattice" />
       <item itemvalue="Python.SimpleSIRWIthBirthsAndDeaths" />
+      <item itemvalue="Python.GameOfLife2DSIRImage" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.GameOfLife2DSIRImage" />
         <item itemvalue="Python.SimpleSIRWIthBirthsAndDeaths" />
-        <item itemvalue="Python.SimpleSIRNoBirthsNoDeaths" />
-        <item itemvalue="Python.GameOfLifeSEISImage" />
-        <item itemvalue="Python.GameOfLife2DSISImage" />
-        <item itemvalue="Python.GameOfLife2DSIRSImage" />
+        <item itemvalue="Python.CoupledLattice" />
+        <item itemvalue="Python.Distributions" />
+        <item itemvalue="Python.GameOfLife2DSIR" />
       </list>
     </recent_temporary>
   </component>
@@ -396,14 +401,7 @@
       <workItem from="1582279695866" duration="2318000" />
       <workItem from="1582282039572" duration="2571000" />
       <workItem from="1582285460643" duration="5955000" />
-      <workItem from="1582531033266" duration="782000" />
-    </task>
-    <task id="LOCAL-00007" summary="Working SIS 2D GoL">
-      <created>1444817623801</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1444817623801</updated>
+      <workItem from="1582531033266" duration="2579000" />
     </task>
     <task id="LOCAL-00008" summary="Before testing the 2D SIS extreme values">
       <created>1444818267860</created>
@@ -741,7 +739,14 @@
       <option name="project" value="LOCAL" />
       <updated>1447377546810</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Library cleanups.">
+      <created>1582532795730</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1582532795730</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -756,7 +761,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="After fixing SEIRS and SIRS distributions" />
     <MESSAGE value="After fixing SIS and SEIS distributions" />
     <MESSAGE value="After adding the models:&#10;- Coupled lattice 2D with Von Neumann neighborhood&#10;- Coupled lattice 2D with Moore neighborhood&#10;- ForestFire 2D CA&#10;- Numerical SIR with Births and Deaths" />
     <MESSAGE value="Added first &quot;random walking&quot; vector agent in a 2D plane" />
@@ -781,33 +785,38 @@
     <MESSAGE value="After some setttings. Before starting the flock from a point" />
     <MESSAGE value="Good settings for 100 count herd" />
     <MESSAGE value="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance" />
-    <option name="LAST_COMMIT_MESSAGE" value="FlockAgentModel with 30 agents and &quot;wall&quot; avoidance" />
+    <MESSAGE value="Library cleanups." />
+    <option name="LAST_COMMIT_MESSAGE" value="Library cleanups." />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="388" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1582285863841">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="721" y="388" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1170@0.0.1920.1170" timestamp="1582285863841" />
+    <state x="555" y="179" key="CommitChangelistDialog2" timestamp="1582532795155">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="555" y="179" key="CommitChangelistDialog2/0.0.1920.1170@0.0.1920.1170" timestamp="1582532795155" />
     <state x="385" y="299" key="FileChooserDialogImpl" timestamp="1582282379892">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="385" y="299" key="FileChooserDialogImpl/0.0.1920.1170@0.0.1920.1170" timestamp="1582282379892" />
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582292548531">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom" timestamp="1582534477606">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
-    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582292548531">
+    <state width="1877" height="172" key="GridCell.Tab.0.bottom/0.0.1920.1170@0.0.1920.1170" timestamp="1582534477606" />
+    <state width="1877" height="172" key="GridCell.Tab.0.center" timestamp="1582534477606">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
-    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582292548531">
+    <state width="1877" height="172" key="GridCell.Tab.0.center/0.0.1920.1170@0.0.1920.1170" timestamp="1582534477606" />
+    <state width="1877" height="172" key="GridCell.Tab.0.left" timestamp="1582534477606">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
-    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582292548531">
+    <state width="1877" height="172" key="GridCell.Tab.0.left/0.0.1920.1170@0.0.1920.1170" timestamp="1582534477606" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right" timestamp="1582534477606">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
-    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582292548531" />
+    <state width="1877" height="172" key="GridCell.Tab.0.right/0.0.1920.1170@0.0.1920.1170" timestamp="1582534477606" />
     <state width="1877" height="398" key="GridCell.Tab.1.bottom" timestamp="1582282028702">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -828,6 +837,10 @@
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
     <state x="107" y="187" key="SettingsEditor/0.0.1920.1170@0.0.1920.1170" timestamp="1582282387065" />
+    <state x="552" y="318" key="Vcs.Push.Dialog.v2" timestamp="1582532798435">
+      <screen x="0" y="0" width="1920" height="1170" />
+    </state>
+    <state x="552" y="318" key="Vcs.Push.Dialog.v2/0.0.1920.1170@0.0.1920.1170" timestamp="1582532798435" />
     <state x="656" y="409" key="com.intellij.ide.util.TipDialog" timestamp="1582531110452">
       <screen x="0" y="0" width="1920" height="1170" />
     </state>
@@ -840,11 +853,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TestModels/GameOfLife1D.py</url>
-          <line>102</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Various/DrawHexagon.py</url>
           <line>106</line>
@@ -864,24 +872,24 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1582289625030" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1582291631909" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$Distributions.coverage" NAME="Distributions Coverage Results" MODIFIED="1582533875144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRImage.coverage" NAME="GameOfLife2DSIRImage Coverage Results" MODIFIED="1582534477598" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife1D.coverage" NAME="GameOfLife1D Coverage Results" MODIFIED="1582288639149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLifeSEISImage.coverage" NAME="GameOfLifeSEISImage Coverage Results" MODIFIED="1582291965828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRNoBirthsNoDeaths.coverage" NAME="SimpleSIRNoBirthsNoDeaths Coverage Results" MODIFIED="1582292543470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$ForestFireCA.coverage" NAME="ForestFireCA Coverage Results" MODIFIED="1582290872428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSEIRSImage.coverage" NAME="GameOfLife2DSEIRSImage Coverage Results" MODIFIED="1582291647745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$FlocksAgentModel.coverage" NAME="FlocksAgentModel Coverage Results" MODIFIED="1582290695729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1582288645749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1582292548524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DHex.coverage" NAME="GameOfLife2DHex Coverage Results" MODIFIED="1582289607784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2D.coverage" NAME="GameOfLife2D Coverage Results" MODIFIED="1582533670686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$SimpleSIRWIthBirthsAndDeaths.coverage" NAME="SimpleSIRWIthBirthsAndDeaths Coverage Results" MODIFIED="1582534148816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DHex.coverage" NAME="GameOfLife2DHex Coverage Results" MODIFIED="1582533847470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$png_to_movie.coverage" NAME="png_to_movie Coverage Results" MODIFIED="1582285565379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels/movie" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIRSImage.coverage" NAME="GameOfLife2DSIRSImage Coverage Results" MODIFIED="1582291777188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLattice.coverage" NAME="CoupledLattice Coverage Results" MODIFIED="1582288693888" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLattice.coverage" NAME="CoupledLattice Coverage Results" MODIFIED="1582533892620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$png_to_movie__1_.coverage" NAME="png_to_movie (1) Coverage Results" MODIFIED="1582285857431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$CoupledLatticeMoore.coverage" NAME="CoupledLatticeMoore Coverage Results" MODIFIED="1582289468784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSISImage.coverage" NAME="GameOfLife2DSISImage Coverage Results" MODIFIED="1582291861237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/WorkingModels" />
-    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIR.coverage" NAME="GameOfLife2DSIR Coverage Results" MODIFIED="1582289612845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
+    <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$GameOfLife2DSIR.coverage" NAME="GameOfLife2DSIR Coverage Results" MODIFIED="1582533852931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TestModels" />
     <SUITE FILE_PATH="coverage/CellularAutomataEpidemicModels$DrawHexagon.coverage" NAME="DrawHexagon Coverage Results" MODIFIED="1582289636364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Various" />
   </component>
 </project>

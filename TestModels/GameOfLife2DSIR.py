@@ -1,15 +1,23 @@
 """ A test 2D CA model for SIR without mortality or birth """
 
 import random
-
 import numpy as np
 import pylab as pl
-
-''' Print the current generation '''
 
 
 def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalCharacter, susceptibleCharacter,
                             infectedCharacter, recoveredCharacter):
+    """
+    Print the current generation.
+    :param currentTimeStep:
+    :param cellCountX:
+    :param cellCountY:
+    :param normalCharacter:
+    :param susceptibleCharacter:
+    :param infectedCharacter:
+    :param recoveredCharacter:
+    :return:
+    """
     print("TimeStep %3i:  " % currentTimeStep)
     rowLabel = "  "
     for l in range(cellCountX):
@@ -21,7 +29,7 @@ def printGenerationUniverse(currentTimeStep, cellCountX, cellCountY, normalChara
                          replace('2', infectedCharacter + " ").replace('3', recoveredCharacter + " ")))
 
 
-''' This method calculates the new state of the cell based on Van Neumann neighborhood '''
+''' This method calculates the new state of the cell based on Von Neumann neighborhood '''
 
 
 def getNewState2D(currentRowNeighbours, upperRowNeighbours, lowerRowNeighbours):

@@ -15,25 +15,25 @@ def getNewState(previousNeighboursState):
 
     newState = selfCharacter
 
-    if selfCharacter == '0': # If Normal and there is an infected close, be Susceptible
+    if selfCharacter == '0':  # If Normal and there is an infected close, be Susceptible
         if beforeCharacter == '2' or afterCharacter == '2':
             newState = '1'
     else:
-        if selfCharacter == '1': # if Susceptible, calculate the probability to be Infected
+        if selfCharacter == '1':  # if Susceptible, calculate the probability to be Infected
             #betaChance = (2 - np.random.normal(0.5, 1.0)) # NORMAL
             #betaChance = (2 - np.random.uniform()) # UNIFORM
             betaChance = (2 - (np.random.poisson(5) % 10) * 0.1)  # POISSON
-            if betaChance > 0 and betaChance < beta:
+            if 0 < betaChance < beta:
                 newState = '2'
             else:
                 newState = '0'
         else:
-            if selfCharacter == '2': # if Infected, calculate the probability to be Susceptible 'to recover'
+            if selfCharacter == '2':  # if Infected, calculate the probability to be Susceptible 'to recover'
                 #gammaChance = (1 - np.random.normal(0.5, 1.0)) # NORMAL
                 #gammaChance = (1 - np.random.uniform()) # UNIFORM
                 gammaChance = (1 - (np.random.poisson(5) % 10) * 0.1) # POISSON
 
-                if gammaChance < gamma and gammaChance > 0:
+                if gamma > gammaChance > 0:
                     newState = '1'
 
     return newState
